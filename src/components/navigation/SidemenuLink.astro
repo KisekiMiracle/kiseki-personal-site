@@ -1,0 +1,14 @@
+---
+interface Props {
+	leadingIcon: string;
+	label: string;
+	url: string;
+}
+
+const { leadingIcon, label, url } = Astro.props;
+---
+
+<a href={url} class="flex items-center gap-4 hover:bg-blue-50 px-2 py-3 rounded-xl transition-colors duration-150">
+    <i data-feather={leadingIcon} />
+    <span class="mt-0.5 font-bold">{label}</span>
+</a>
