@@ -9,13 +9,22 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.8",
     "@astrojs/mdx": "^4.3.5",
+    "@astrojs/react": "^4.3.1",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.5.1",
+    "@react-email/components": "^0.5.3",
+    "@react-email/render": "1.2.3",
     "@tailwindcss/vite": "^4.1.13",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
     "astro": "^5.13.7",
     "astro-icon": "^1.1.5",
     "feather-icons": "^4.29.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "resend": "^6.1.0",
     "sharp": "^0.34.3",
     "tailwindcss": "^4.1.13"
   },
@@ -23,6 +32,7 @@
     "@biomejs/biome": "2.2.4",
     "@iconify-json/fa": "^1.2.2",
     "@iconify-json/fa6-brands": "^1.2.6",
-    "@tailwindcss/typography": "^0.5.16"
+    "@tailwindcss/typography": "^0.5.16",
+    "wrangler": "^4.37.1"
   }
 }
