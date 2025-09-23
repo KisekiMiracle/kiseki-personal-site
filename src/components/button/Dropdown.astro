@@ -1,0 +1,73 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { label } = Astro.props;
+---
+
+<button type="button" class="text-left" data-dropdown-btn>
+  <div class="flex items-center gap-2 hover:cursor-pointer">
+    <Icon name="system-uicons:chevron-down" class="text-2xl" data-chevron />
+    <p class="">{label}</p>
+  </div>
+  <div class="hidden flex-col gap-2 opacity-0 h-0">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nihil
+      commodi quas? Rerum magni cum eaque fugiat corrupti dicta ab laudantium
+      assumenda eligendi doloribus neque atque, odit, adipisci suscipit?
+      Laborum.
+    </p>
+  </div>
+</button>
+
+<script>
+  import { gsap } from "gsap";
+
+  let isOpen = false;
+  document.addEventListener("astro:page-load", () => {
+    const button = document.querySelectorAll("[data-dropdown-btn]");
+    const chevron = document.querySelector("[data-chevron]");
+    button.forEach((btn) => {
+      btn?.querySelector("div:first-child")?.addEventListener("click", () => {
+        console.log(chevron);
+        if (isOpen) {
+          gsap.to(btn?.querySelector("div:last-child"), {
+            opacity: 0,
+            height: 0,
+            display: "none",
+            duration: 0.175,
+            onComplete: () => {
+              // isOpen = !isOpen;
+            },
+          });
+          gsap.to(chevron, {
+            rotation: 0,
+            duration: 0.175,
+            onComplete: () => {
+              isOpen = !isOpen;
+            },
+          });
+        } else {
+          gsap.fromTo(
+            btn?.querySelector("div:last-child"),
+            { display: "flex" },
+            {
+              opacity: 1,
+              height: "auto",
+              duration: 0.175,
+              onComplete: () => {
+                // isOpen = !isOpen;
+              },
+            }
+          );
+          gsap.to(chevron, {
+            rotation: 180,
+            duration: 0.175,
+            onComplete: () => {
+              isOpen = !isOpen;
+            },
+          });
+        }
+      });
+    });
+  });
+</script>

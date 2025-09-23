@@ -1,4 +1,6 @@
 ---
+/** biome-ignore-all lint/correctness/noUnusedVariables: <-> */
+
 interface Props {
 	leadingIcon: string;
 	label: string;
@@ -8,7 +10,33 @@ interface Props {
 const { leadingIcon, label, url } = Astro.props;
 ---
 
-<a href={url} class="flex items-center gap-4 hover:bg-blue-50 px-2 py-3 rounded-xl transition-colors duration-150">
-    <i data-feather={leadingIcon} />
-    <span class="mt-0.5 font-bold">{label}</span>
+<a
+  href={url}
+  class="flex items-center gap-4 px-2 py-3 rounded-xl transition-colors duration-150"
+  data-sidemenu-link
+>
+  <i data-feather={leadingIcon}></i>
+  <span class="mt-0.5 font-bold text-xl">{label}</span>
 </a>
+
+<script>
+  import { gsap } from "gsap";
+
+  document.addEventListener("astro:page-load", () => {
+    // This runs on first page load and after every navigation.
+    const links = document.querySelectorAll("[data-sidemenu-link]");
+    links.forEach((link) => {
+      link.addEventListener("mouseenter", () => {
+        gsap.to(link, {
+          scale: 1.15,
+          y: -4,
+          boxShadow: `7px 7px 14px #bebebe,-7px -7px 14px #ffffff`,
+          duration: 0.175,
+        });
+      });
+      link.addEventListener("mouseleave", () => {
+        gsap.to(link, { scale: 1, y: 0, boxShadow: `unset`, duration: 0.175 });
+      });
+    });
+  });
+</script>

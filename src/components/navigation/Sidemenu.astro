@@ -1,21 +1,64 @@
 ---
+/** biome-ignore-all lint/correctness/noUnusedImports: <uneeded> */
+import { Image } from "astro:assets";
 import Link from "../navigation/SidemenuLink.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<section class="flex flex-col items-center gap-4 bg-white shadow-lg shadow-neutral-200 px-6 py-8 rounded-2xl max-w-xs">
-  <div class="flex flex-col items-center gap-4">
-    <img src="https://placehold.co/200x200" class="rounded-2xl" />
+<section
+  class="top-4 sticky flex flex-col items-center gap-4 max-w-xs"
+  
+>
+  <div class="flex flex-col items-center gap-4 bg-white shadow-lg shadow-neutral-200 px-6 py-8 rounded-2xl" transition:persist>
+    <Image
+      alt=""
+      inferSize={true}
+      src="https://bucket.kiseki-miracle.dev/pfp.png"
+      class="rounded-2xl w-24 h-24"
+    />
     <h1 class="font-bold text-2xl">Kiseki 奇跡</h1>
     <p>奇跡のプロフィールです。</p>
-    <Icon name="fa6-brands:pixiv" />
+    <div class="flex items-center gap-4">
+      <Icon
+        name="fa6-brands:square-x-twitter"
+        class="scale-150 hover:cursor-pointer"
+        data-sidemenu-icon
+      />
+      <Icon
+        name="fa6-brands:square-github"
+        class="hover:text-purple-900 scale-150 transition-colors duration-150 hover:cursor-pointer"
+        data-sidemenu-icon
+      />
+      <Icon
+        name="fa6-brands:pixiv"
+        class="hover:text-blue-700 scale-150 transition-colors duration-150 hover:cursor-pointer"
+        data-sidemenu-icon
+      />
+    </div>
+  </div>
+  <div class="flex flex-col justify-start bg-white shadow-lg shadow-neutral-200 px-6 py-4 py-8 rounded-2xl w-full">
+    <Link leadingIcon="home" label="Home" url="/" />
+    <Link leadingIcon="file-text" label="About" url="/about" />
+    <Link leadingIcon="book" label="Blog" url="/" />
+    <Link leadingIcon="code" label="Projects" url="/" />
+    <Link leadingIcon="edit-3" label="Artworks" url="/" />
+    <Link leadingIcon="award" label="Attribution" url="/" />
+    <Link leadingIcon="message-circle" label="Contact Me!" url="/" />
   </div>
 </section>
 
-<section class="flex flex-col items-center gap-4 bg-white shadow-lg shadow-neutral-200 px-6 py-2 rounded-2xl max-w-xs">
-  <div class="flex flex-col justify-start py-4 w-full">
-    <Link leadingIcon="home" label="Home" url="/" />
-    <Link leadingIcon="home" label="Home" url="/" />
-    <Link leadingIcon="home" label="Home" url="/" />
-  </div>
-</section>
+<script>
+  import { gsap } from "gsap";
+
+  document.addEventListener("astro:page-load", () => {
+    const icons = document.querySelectorAll("[data-sidemenu-icon]");
+    icons.forEach((icon) => {
+      icon.addEventListener("mouseenter", () => {
+        gsap.to(icon, { scale: 1.75, duration: 0.175 });
+      });
+      icon.addEventListener("mouseleave", () => {
+        gsap.to(icon, { scale: 1.5, duration: 0.175 });
+      });
+    }); // e.g. add event listeners
+  });
+</script>

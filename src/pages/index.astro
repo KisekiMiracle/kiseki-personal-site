@@ -1,26 +1,39 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import HomeLayout from "../layouts/HomeLayout.astro";
-import Sidemenu from "../components/navigation/Sidemenu.astro";
-import Footer from "../components/section/Footer.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import BlogPostCard from "../components/content/BlogPostCard.astro";
+import ServiceCard from "../components/content/ServiceCard.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import {fade} from "astro:transitions";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body class="bg-neutral-100/60">
-    <main class="flex justify-center gap-8 py-6">
-      <aside class="flex flex-col gap-6">
-        <Sidemenu />
-      </aside>
-      <HomeLayout />
-    </main>
-    <script>
-      feather.replace();
-    </script>
-  </body>
-  <!-- <Footer /> -->
-</html>
+<MainLayout
+        title="Atelier | Home"
+        coverSrc="https://placehold.co/800x400"
+        transition:animate={fade({duration: "0.4s"})}
+>
+    <h1 class="font-extrabold text-4xl">Title of this section</h1>
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates
+        obcaecati molestiae atque quia placeat, esse inventore, vero excepturi porro
+        doloremque beatae qui quae molestias sit pariatur consectetur. Hic, aliquid
+        saepe?
+    </p>
+    <hr/>
+    <h2 class="font-extrabold text-3xl">Recent Posts</h2>
+    <div>
+        <BlogPostCard/>
+    </div>
+    <hr/>
+    <h2 class="font-extrabold text-3xl">My Services</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In fugiat et explicabo corrupti repudiandae fuga natus
+        neque vitae</p>
+    <div class="flex flex-col gap-4">
+        <ServiceCard icon="mdi:art" title="Art Commissions">
+            Would you like to bring your ideas to life? Let's work together and make those concepts a reality–is not
+            just a drawing, but is a conveyed experience~
+        </ServiceCard>
+        <ServiceCard icon="mdi:art" title="Art Commissions">
+            Would you like to bring your ideas to life? Let's work together and make those concepts a reality–is not
+            just a drawing, but is a conveyed experience~
+        </ServiceCard>
+    </div>
+</MainLayout>
