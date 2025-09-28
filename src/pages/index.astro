@@ -1,6 +1,7 @@
 ---
 /** biome-ignore-all lint/correctness/noUnusedImports: <-> */
 /** biome-ignore-all assist/source/organizeImports: <-> */
+import { Icon } from "astro-icon/components";
 import BlogPostCard from "../components/content/BlogPostCard.astro";
 import ServiceCard from "../components/content/ServiceCard.astro";
 import MainLayout from "../layouts/MainLayout.astro";
@@ -11,19 +12,22 @@ import { fade } from "astro:transitions";
         coverSrc="https://placehold.co/900x400"
         transition:animate={fade({duration: "0.4s"})}
 >
-    <h1 class="font-extrabold text-4xl">Title of this section</h1>
+    <h1 class="flex items-center gap-2 font-extrabold text-blue-700 text-4xl"><Icon name="mdi:stars" /> Title of this section</h1>
     <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates
         obcaecati molestiae atque quia placeat, esse inventore, vero excepturi porro
         doloremque beatae qui quae molestias sit pariatur consectetur. Hic, aliquid
         saepe?
     </p>
-    <hr/>
+    <hr class="my-4 text-neutral-200"/>
     <h2 class="font-extrabold text-3xl">Recent Posts</h2>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur repellat quisquam perspiciatis maxime velit ratione adipisci incidunt explicabo accusamus nostrum doloribus eum nulla ea, dolores officia voluptatibus sequi provident quod!
+    </p>
     <div>
         <BlogPostCard/>
     </div>
-    <hr/>
+    <hr class="my-4 text-neutral-200"/>
     <h2 class="font-extrabold text-3xl">My Services</h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In fugiat et explicabo corrupti repudiandae fuga natus
         neque vitae</p>
@@ -37,4 +41,6 @@ import { fade } from "astro:transitions";
             just a drawing, but is a conveyed experience~
         </ServiceCard>
     </div>
+    <hr class="my-4 text-neutral-200"/>
+    <h2 class="flex items-center gap-2 font-extrabold text-3xl"><Icon name="mdi:stars" /> Title of this section</h2>
 </MainLayout>
