@@ -1,47 +1,49 @@
 ---
-import {Icon} from "astro-icon/components";
-const {icon, title} = Astro.props;
+/** biome-ignore-all lint/correctness/noUnusedImports: <---> */
+/** biome-ignore-all assist/source/organizeImports: <---> */
+import { Icon } from "astro-icon/components";
+const { icon, title } = Astro.props;
 ---
 
 <div
-        style="display:grid;grid-template-columns: auto 1fr;gap:2rem;align-items: center;box-shadow: 2px 2px 4px #bebebe,-2px -2px 4px #ffffff"
-        class="px-6.5 py-4 border-[1px] border-neutral-100 rounded-2xl"
-        data-service-card
+  style="display:grid;grid-template-columns: auto 1fr;gap:2rem;align-items: center;box-shadow: 2px 2px 4px #bebebe,-2px -2px 4px #ffffff"
+  class="px-6.5 py-4 border-[1px] border-neutral-100 rounded-2xl"
+  data-service-card
 >
-    <Icon
-            name={icon}
-            class="bg-pink-100 p-2 rounded-full text-pink-600 text-6xl"
-    />
-    <div class="flex flex-col gap-2">
-        <h3 class="font-extrabold text-xl">{title}</h3>
-        <p>
-            <slot/>
-        </p>
-    </div>
+  <Icon
+    name={icon}
+    class="bg-pink-100 p-2 rounded-full text-pink-600 text-6xl"
+  />
+  <div class="flex flex-col gap-2">
+    <h3 class="font-extrabold text-xl">{title}</h3>
+    <p>
+      <slot />
+    </p>
+  </div>
 </div>
 
 <script>
-    import {gsap} from "gsap";
+  import { gsap } from "gsap";
 
-    document.addEventListener("astro:page-load", () => {
-        const cards = document.querySelectorAll("[data-service-card]");
-        cards.forEach((card) => {
-            card.addEventListener("mouseenter", () => {
-                gsap.to(card, {
-                    scale: 1.05,
-                    y: -4,
-                    boxShadow: `7px 7px 14px #bebebe,-7px -7px 14px #ffffff`,
-                    duration: 0.175,
-                });
-            });
-            card.addEventListener("mouseleave", () => {
-                gsap.to(card, {
-                    scale: 1,
-                    y: 0,
-                    boxShadow: `2px 2px 4px #bebebe,-2px -2px 4px #ffffff`,
-                    duration: 0.175,
-                });
-            });
+  document.addEventListener("astro:page-load", () => {
+    const cards = document.querySelectorAll("[data-service-card]");
+    cards.forEach((card) => {
+      card.addEventListener("mouseenter", () => {
+        gsap.to(card, {
+          scale: 1.05,
+          y: -4,
+          boxShadow: `7px 7px 14px #bebebe,-7px -7px 14px #ffffff`,
+          duration: 0.175,
         });
+      });
+      card.addEventListener("mouseleave", () => {
+        gsap.to(card, {
+          scale: 1,
+          y: 0,
+          boxShadow: `2px 2px 4px #bebebe,-2px -2px 4px #ffffff`,
+          duration: 0.175,
+        });
+      });
     });
+  });
 </script>

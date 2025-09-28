@@ -1,5 +1,6 @@
 ---
 /** biome-ignore-all lint/correctness/noUnusedImports: <uneeded> */
+/** biome-ignore-all assist/source/organizeImports: <-> */
 import Cover from "../components/section/Cover.astro";
 import BlogPostCard from "../components/content/BlogPostCard.astro";
 import BaseHead from "../components/BaseHead.astro";
@@ -22,7 +23,7 @@ const { title, coverSrc } = Astro.props;
         <Sidemenu />
       </aside>
       <section
-        class="flex flex-col gap-12 bg-white shadow-lg shadow-neutral-200 pb-8 rounded-2xl max-w-3xl overflow-hidden"
+        class="flex flex-col gap-12 bg-white shadow-lg shadow-neutral-200 pb-8 rounded-2xl max-w-4xl overflow-hidden"
       >
         <Cover imgSource={coverSrc} />
         <article class="flex flex-col gap-4 px-14">

@@ -1,16 +1,22 @@
 ---
+import BlogTag from "../badges/BlogTag.astro";
 
+const { tagLabel, tagIcon } = Astro.props;
 ---
 
-<div>
-    <div>
-        <h3>Title of Blog</h3>
-        <p class="flex gap-2">
-            <span>Tag</span>
-            <span>Tag</span>
-            <span>Tag</span>
-        </p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta excepturi aspernatur, quod atque animi neque, ab dolorum deleniti aut autem doloremque iusto voluptates deserunt eos! Deleniti nihil officiis dolores reiciendis!</p>
+<div class="flex shadow-md shadow-neutral-400 rounded-2xl overflow-hidden">
+  <div
+    class="flex flex-col gap-3 px-8 py-6"
+  >
+    <h3 class="font-extrabold text-2xl">Title of Blog</h3>
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta excepturi
+      aspernatur, quod atque animi neque.
+    </p>
+    <div class="flex flex-row gap-2 pt-1">
+      <BlogTag icon="mdi:file-multiple-outline" label="Documentation" />
+      <BlogTag icon="mdi:tag-outline" label="Life of an Artist" />
     </div>
-    <div></div>
+  </div>
+    <img src="https://picsum.photos/300/200" alt="">
 </div>
