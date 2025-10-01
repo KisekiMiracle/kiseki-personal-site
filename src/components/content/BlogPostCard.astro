@@ -1,22 +1,60 @@
 ---
+import { Icon } from "astro-icon/components";
 import BlogTag from "../badges/BlogTag.astro";
 
 const { tagLabel, tagIcon, tagType } = Astro.props;
 ---
 
 <div class="flex rounded-2xl outline-[1px] outline-neutral-100 overflow-hidden" style="box-shadow: 2px 2px 4px #bebebe,-2px -2px 4px #ffffff;">
-  <div
-    class="flex flex-col gap-3 px-8 py-6"
-  >
-    <h3 class="font-bold text-2xl">Title of Blog</h3>
-    <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta excepturi
-      aspernatur, quod atque animi neque.
-    </p>
-    <div class="flex flex-row gap-2 pt-1">
-      <BlogTag icon="mdi:file-multiple-outline" label="Documentation" />
-      <BlogTag icon="mdi:tag-outline" label="Life of an Artist" />
+  <div class="flex flex-col gap-4 px-8 py-6">
+    <div class="justify-between grid grid-cols-2">
+      <p class="flex items-center gap-3 text-neutral-500 text-sm whitespace-nowrap">
+        <span class="flex items-center gap-1"><Icon name="mdi:calendar-outline" />01/01/2025</span>
+        <span class="flex items-center gap-0.5"><Icon name="mdi:bookmark-outline" />type</span>
+      </p>
+      <p class="flex justify-end items-center gap-0.5 text-neutral-500 text-sm whitespace-nowrap">
+        <span class="flex items-center gap-1"><Icon name="mdi:book-open-page-variant" />0 words</span>
+        <Icon name="mdi:dot" />
+        <span class="flex items-center gap-0.5"><Icon name="mdi:timer-sand" />0 minutes</span>
+      </p>
+    </div>
+    <h3 class="pl-2 border-l-6 border-l-blue-700 font-bold hover:text-blue-700 text-2xl transition-colors duration-150 hover:cursor-pointer">Title of Blog</h3>
+    <p class="mt-[-10px]">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta excepturi aspernatur, quod atque animi neque.</p>
+    <div class="flex flex-row gap-2">
+      <BlogTag icon="mdi:file-multiple-outline" label="Documentation" color="blue" />
+      <BlogTag icon="mdi:tag-outline" label="Life of an Artist" color="blue" />
     </div>
   </div>
-    <img src="https://picsum.photos/300/200" alt="">
+  <a class="relative w-full h-full hover:cursor-pointer" href="/blog">
+    <div class="top-0 right-0 left-0 z-10 absolute bg-zinc-900 opacity-50 w-0 h-full" data-img></div>
+    <img src="https://picsum.photos/300/300" alt="" class="w-full h-full max-h-[260px]"/>
+  </a>
 </div>
+
+<script>
+  import { gsap } from "gsap";
+
+  document.addEventListener("astro:page-load", () => {
+    const imgs = document.querySelectorAll("[data-img]");
+    imgs.forEach((img) => {
+      img.nextElementSibling?.addEventListener("mouseenter", () => {
+        gsap.to(img, {
+          width: "100%",
+          duration: 0.575,
+          pointerEvents: 'none',
+          zIndex: 1,
+          ease: "power4.out",
+        });
+      });
+      img.nextElementSibling?.addEventListener("mouseleave", () => {
+        gsap.to(img, {
+          width: 0,
+          duration: 0.575,
+          zIndex: 0,
+          pointerEvents: 'auto',
+          ease: "power4.out",
+        });
+      });
+    });
+  });
+</script>

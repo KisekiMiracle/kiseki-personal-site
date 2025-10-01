@@ -1,12 +1,36 @@
 ---
 import { Icon } from "astro-icon/components";
 
-const { icon, label } = Astro.props;
+const { icon, label, color } = Astro.props;
 ---
 
-<p class="flex items-center gap-2 bg-blue-50 px-2.5 py-1 rounded-md w-fit hover:cursor-pointer">
-  <Icon name={icon} class="font-bold text-blue-700"/>
-  <span class="font-bold text-blue-700 text-sm">
+<p class=`flex items-center gap-2 bg-${color}-50 px-2.5 py-1 rounded-md w-fit hover:cursor-pointer transition-colors duration-150 hover:[&>span]:text-white hover:bg-${color}-700 hover:[&>svg]:text-white` data-tag>
+  <Icon name={icon} class=`font-bold text-${color}-700`/>
+  <span class=`font-bold text-${color}-700 text-sm`>
     {label}
   </span>
 </p>
+
+<script>
+  import { gsap } from "gsap";
+
+  document.addEventListener("astro:page-load", () => {
+    const tags = document.querySelectorAll("[data-tag]");
+    tags.forEach((tag) => {
+      tag.addEventListener("mouseenter", () => {
+        gsap.to(tag, {
+          scale: 1.15,
+          duration: 0.175,
+          zIndex: 1,
+        });
+      });
+      tag.addEventListener("mouseleave", () => {
+        gsap.to(tag, {
+          scale: 1,
+          duration: 0.175,
+          zIndex: 0,
+        });
+      });
+    });
+  });
+</script>
