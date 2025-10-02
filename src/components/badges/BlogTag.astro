@@ -2,11 +2,32 @@
 import { Icon } from "astro-icon/components";
 
 const { icon, label, color } = Astro.props;
+const DICTIONARY: any = {
+	blue: "hover:bg-blue-700",
+	red: "hover:bg-red-700",
+	amber: "hover:bg-amber-700",
+	green: "hover:bg-green-700",
+	pink: "hover:bg-pink-700",
+	purple: "hover:bg-purple-700",
+	// …
+};
+const DICTIONARY2: any = {
+	blue: "text-blue-700",
+	red: "text-red-700",
+	amber: "text-amber-700",
+	green: "text-green-700",
+	pink: "text-pink-700",
+	purple: "text-purple-700",
+	// …
+};
 ---
 
-<p class=`flex items-center gap-2 bg-${color}-50 px-2.5 py-1 rounded-md w-fit hover:cursor-pointer transition-colors duration-150 hover:[&>span]:text-white hover:bg-${color}-700 hover:[&>svg]:text-white` data-tag>
-  <Icon name={icon} class=`font-bold text-${color}-700`/>
-  <span class=`font-bold text-${color}-700 text-sm`>
+<p
+  class=`flex items-center gap-2 bg-${color}-50 px-2.5 py-1 rounded-md w-fit hover:cursor-pointer transition-colors duration-150 hover:[&>span]:text-white ${DICTIONARY[color]} hover:[&>svg]:text-white`
+  data-tag
+>
+  <Icon name={icon} class=`font-bold ${DICTIONARY2[color]}` />
+  <span class=`font-bold ${DICTIONARY2[color]} text-sm`>
     {label}
   </span>
 </p>
