@@ -6,8 +6,7 @@ const { tagLabel, tagIcon, tagType } = Astro.props;
 ---
 
 <div
-  class="flex rounded-2xl outline-[1px] outline-neutral-100 overflow-hidden"
-  style="box-shadow: 2px 2px 4px #bebebe,-2px -2px 4px #ffffff;"
+  class="flex shadow-md shadow-neutral-300 rounded-2xl outline-[1px] outline-neutral-100 overflow-hidden"
 >
   <div class="flex flex-col gap-4 px-8 py-6">
     <div class="justify-between grid grid-cols-2">
@@ -34,7 +33,7 @@ const { tagLabel, tagIcon, tagType } = Astro.props;
       </p>
     </div>
     <h3
-      class="pl-2 border-l-6 border-l-blue-700 w-fit font-bold hover:text-blue-700 text-2xl transition-colors duration-150 hover:cursor-pointer"
+      class="pl-2 border-l-6 border-l-blue-700 w-fit font-extrabold hover:text-blue-700 text-xl transition-colors duration-150 hover:cursor-pointer"
       data-title
     >
       <span class="flex items-center gap-2">Title of Blog <Icon name="mdi:chevron-double-right" class="hidden translate-x-[-20px]"/></span>
@@ -60,9 +59,9 @@ const { tagLabel, tagIcon, tagType } = Astro.props;
     >
     </div>
     <img
-      src="https://picsum.photos/300/300"
+      src="https://picsum.photos/300/320"
       alt=""
-      class="w-full h-full max-h-[260px]"
+      class="w-full h-full max-h-[262px]"
     />
   </a>
 </div>

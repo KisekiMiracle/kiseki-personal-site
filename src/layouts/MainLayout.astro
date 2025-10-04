@@ -18,7 +18,7 @@ const { title, coverSrc } = Astro.props;
     <ClientRouter />
   </head>
   <body class="bg-neutral-100/60">
-    <main class="flex justify-center gap-8 py-6">
+    <main class="flex justify-center gap-8 py-6 text-neutral-800">
       <aside class="flex flex-col gap-6">
         <Sidemenu />
       </aside>
@@ -26,7 +26,7 @@ const { title, coverSrc } = Astro.props;
         class="flex flex-col gap-12 bg-white shadow-lg shadow-neutral-200 pb-8 rounded-2xl max-w-4xl overflow-hidden"
       >
         <Cover imgSource={coverSrc} />
-        <article class="flex flex-col gap-4 px-14 text-neutral-800">
+        <article class="flex flex-col gap-4 px-14">
           <slot />
         </article>
       </section>
