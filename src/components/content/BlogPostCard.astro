@@ -36,7 +36,12 @@ const { tagLabel, tagIcon, tagType } = Astro.props;
       class="pl-2 border-l-6 border-l-blue-700 w-fit font-extrabold hover:text-blue-700 text-xl transition-colors duration-150 hover:cursor-pointer"
       data-title
     >
-      <span class="flex items-center gap-2">Title of Blog <Icon name="mdi:chevron-double-right" class="hidden translate-x-[-20px]"/></span>
+      <span class="flex items-center gap-2"
+        >Title of Blog <Icon
+          name="mdi:chevron-double-right"
+          class="hidden translate-x-[-20px]"
+        /></span
+      >
       <hr class="border-t-2 border-b-2 w-0" />
     </h3>
     <p class="mt-[-10px]">
@@ -57,6 +62,11 @@ const { tagLabel, tagIcon, tagType } = Astro.props;
       class="top-0 right-0 left-0 z-10 absolute bg-zinc-900 opacity-50 w-0 h-full"
       data-img
     >
+      <Icon
+        name="mdi:chevron-right-circle-outline"
+        class="top-0 right-0 left-0 z-11 absolute w-0 h-full text-white/50 scale-50"
+        data-chevron
+      />
     </div>
     <img
       src="https://picsum.photos/300/320"
@@ -71,13 +81,21 @@ const { tagLabel, tagIcon, tagType } = Astro.props;
 
   document.addEventListener("astro:page-load", () => {
     const imgs = document.querySelectorAll("[data-img]");
-    imgs.forEach((img) => {
+    const chevrons = document.querySelectorAll("[data-chevron]");
+    imgs.forEach((img, index) => {
       img.nextElementSibling?.addEventListener("mouseenter", () => {
         gsap.to(img, {
           width: "100%",
           duration: 0.575,
           pointerEvents: "none",
           zIndex: 1,
+          ease: "power4.out",
+        });
+        gsap.to(chevrons[index], {
+          width: "100%",
+          duration: 0.575,
+          pointerEvents: "none",
+          zIndex: 3,
           ease: "power4.out",
         });
       });
@@ -89,6 +107,13 @@ const { tagLabel, tagIcon, tagType } = Astro.props;
           pointerEvents: "auto",
           ease: "power4.out",
         });
+        gsap.to(chevrons[index], {
+          width: 0,
+          duration: 0.575,
+          zIndex: 2,
+          pointerEvents: "auto",
+          ease: "power4.out",
+        });
       });
     });
     const titles = document.querySelectorAll("[data-title");
@@ -96,12 +121,12 @@ const { tagLabel, tagIcon, tagType } = Astro.props;
       title.addEventListener("mouseenter", () => {
         gsap.to(title.querySelector("hr"), {
           width: "100%",
-          duration: 0.775,
+          duration: 0.575,
           ease: "power4.out",
         });
         gsap.to(title.querySelector("svg"), {
           translateX: -3,
-          display: 'block',
+          display: "block",
           opacity: 1,
           duration: 0.475,
           ease: "power4.out",
@@ -115,7 +140,7 @@ const { tagLabel, tagIcon, tagType } = Astro.props;
         });
         gsap.to(title.querySelector("svg"), {
           translateX: -6,
-          display: 'none',
+          display: "none",
           opacity: 0,
           duration: 0.575,
           ease: "power4.out",

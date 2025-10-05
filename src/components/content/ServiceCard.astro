@@ -1,22 +1,26 @@
 ---
 import { Icon } from "astro-icon/components";
-const { icon, title } = Astro.props;
+const { icon, title, ref } = Astro.props;
 ---
 
 <div
-class="shadow-neutral-300 shadow-sm px-6.5 py-4 rounded-2xl outline-[1px] outline-neutral-100"
+  class="flex flex-col gap-2 shadow-md shadow-neutral-300 px-6.5 py-6 rounded-2xl outline-[1px] outline-neutral-100"
   data-service-card
 >
   <div class="flex items-center gap-2">
-    <Icon
-      name={icon}
-      class="bg-pink-100 p-2 rounded-full text-pink-600 text-6xl"
-     />
-    <h3 class="font-extrabold text-2xl">{title}</h3>
+    <Icon name={icon} class="text-neutral-800 text-2xl" />
+    <h3 class="font-extrabold text-xl">{title}</h3>
   </div>
   <div class="flex flex-col gap-2">
-    <p>
+    <p class="inline-flex flex-col gap-1">
       <slot />
+      <a
+        href={ref ?? "/"}
+        class="flex items-center self-end gap-0 border-b-2 border-b-blue-400 text-blue-500 whitespace-nowrap"
+        ><small class="font-bold">read more</small><Icon
+          name="mdi:arrow-right-thin"
+        /></a
+      >
     </p>
   </div>
 </div>
