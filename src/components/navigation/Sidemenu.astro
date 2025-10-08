@@ -3,6 +3,8 @@
 import { Image } from "astro:assets";
 import Link from "../navigation/SidemenuLink.astro";
 import { Icon } from "astro-icon/components";
+
+import imgPfp from "../../assets/pfp.png";
 ---
 
 <section
@@ -13,11 +15,11 @@ import { Icon } from "astro-icon/components";
     <Image
       alt=""
       inferSize={true}
-      src="https://bucket.kiseki-miracle.dev/pfp.png"
+      src={imgPfp}
       class="rounded-2xl w-24 h-24"
     />
     <h1 class="font-bold text-2xl">Kiseki 奇跡</h1>
-    <p>奇跡のプロフィールです。</p>
+    <p>奇跡のアトリエへようこそ！</p>
     <div class="flex items-center gap-4">
       <Icon
         name="fa6-brands:square-x-twitter"
@@ -36,7 +38,7 @@ import { Icon } from "astro-icon/components";
       />
     </div>
   </div>
-  <div class="flex flex-col justify-start bg-white shadow-lg shadow-neutral-200 px-6 py-4 py-8 rounded-2xl w-full">
+  <div class="flex flex-col justify-start bg-white shadow-lg shadow-neutral-200 px-6 py-8 rounded-2xl w-full">
     <Link leadingIcon="home" label="Home" url="/" />
     <Link leadingIcon="file-text" label="About" url="/about" />
     <Link leadingIcon="book" label="Blog" url="/blog" />
