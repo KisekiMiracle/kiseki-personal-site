@@ -1,0 +1,10 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { label, icon, color = "text-neutral-800" } = Astro.props;
+---
+
+<div class="flex flex-col items-center shadow-neutral-400 shadow-sm px-8 py-4 rounded-2xl w-[116px]">
+  <Icon name={icon} class=`w-[48px] h-[48px] ${color}`/>
+  <h3 class=`font-semibold text-sm text-center whitespace-nowrap`>{label}</h3>
+</div>

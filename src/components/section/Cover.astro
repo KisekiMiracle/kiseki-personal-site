@@ -1,11 +1,11 @@
----/** biome-ignore-all lint/correctness/noUnusedVariables: <explanation> */
-
+---
 interface Props {
 	imgSource: string;
+    position: string;
 }
-const { imgSource } = Astro.props;
+const { imgSource, position = 'object-center' } = Astro.props;
 ---
 
 <div>
-    <img src={imgSource} alt=""/>
+    <img src={imgSource} alt="" class=`w-max max-h-[400px] object-cover ${position}`/>
 </div>

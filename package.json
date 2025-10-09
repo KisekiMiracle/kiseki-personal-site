@@ -15,6 +15,7 @@
 		"@astrojs/react": "^4.3.1",
 		"@astrojs/rss": "^4.0.12",
 		"@astrojs/sitemap": "^3.5.1",
+		"@iconify-icons/simple-line-icons": "^1.2.3",
 		"@iconify-json/mdi": "^1.2.3",
 		"@iconify-json/system-uicons": "^1.2.4",
 		"@react-email/components": "^0.5.3",
@@ -34,8 +35,16 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.2.4",
+		"@iconify-json/devicon": "^1.2.45",
+		"@iconify-json/devicon-plain": "^1.2.41",
 		"@iconify-json/fa": "^1.2.2",
 		"@iconify-json/fa6-brands": "^1.2.6",
+		"@iconify-json/fa6-solid": "^1.2.4",
+		"@iconify-json/file-icons": "^1.2.2",
+		"@iconify-json/fluent-mdl2": "^1.2.1",
+		"@iconify-json/lineicons": "^1.2.6",
+		"@iconify-json/simple-icons": "^1.2.54",
+		"@iconify/icons-simple-line-icons": "^1.2.3",
 		"@tailwindcss/typography": "^0.5.16",
 		"wrangler": "^4.37.1"
 	}
