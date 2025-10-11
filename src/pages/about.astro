@@ -3,19 +3,23 @@ import { fade } from "astro:transitions";
 import MainLayout from "../layouts/MainLayout.astro";
 import Tag from "../components/badges/Tag.astro";
 import TechBadge from "../components/badges/TechBadge.astro";
+
+import coverImg from "../../src/assets/marina_beach.png";
+import { Icon } from "astro-icon/components";
+import Activity from "../components/badges/Activity.astro";
 ---
 
 <MainLayout
   title="Atelier | Home"
-  coverSrc="../../../src/assets/marina_beach.png"
+  coverSrc={coverImg}
   coverPosition="object-bottom"
   transition:animate={fade({ duration: "0.4s" })}
 >
   <div class="gap-8 grid" style="grid-template-columns: auto 1fr;">
     <img src="../../src/assets/pfp.png" alt="" class="rounded-2xl w-[160px]" />
     <div class="flex flex-col gap-2">
-      <h1 class="font-extrabold text-3xl">KisekiMiracle</h1>
-      <p class="mt-[-8px] text-neutral-500 text-xl">
+      <h1 class="font-extrabold text-3xl">Kiseki</h1>
+      <p class="mt-[-8px] text-neutral-500 text-lg">
         Pixel Artist and Frontend Web Developer
       </p>
       <div class="flex gap-2 mt-0.5">
@@ -23,7 +27,7 @@ import TechBadge from "../components/badges/TechBadge.astro";
         <Tag icon="fa6-brands:pixiv" label="Pixiv" color="neutral" />
         <Tag icon="fa6-brands:github" label="Github" color="neutral" />
       </div>
-      <p>
+      <p class="text-[16px]">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
         voluptatibus numquam consequatur magnam, non nemo eius dignissimos
         minima perspiciatis ratione libero laborum. Eius, ipsam fugiat ab
@@ -31,28 +35,74 @@ import TechBadge from "../components/badges/TechBadge.astro";
       </p>
     </div>
   </div>
-  <div class="flex flex-col gap-1">
-    <h2 class="font-extrabold text-2xl">Statistics for Nerds</h2>
+  <div class="flex flex-col gap-1 mt-3">
+    <h2 class="flex items-center gap-2 font-extrabold text-3xl">
+      <Icon name="lineicons:code-1" class="text-blue-700" />Statistics for Nerds
+    </h2>
     <p class="flex flex-col gap-1">
-      <span>This website was built with Astro!</span>
-      <span>I use Arch, btw.</span>
+      The technological stack that I use confidently. This site was made with
+      Astro, by the way.
     </p>
-    <div class="gap-4 grid grid-cols-5 mt-4">
+    <div class="gap-4 grid grid-cols-5 mt-3.5">
       <TechBadge icon="lineicons:html5" label="HTML" />
       <TechBadge icon="lineicons:css3" label="CSS" />
       <TechBadge icon="lineicons:javascript" label="JavaScript" />
       <TechBadge icon="lineicons:typescript" label="TypeScript" />
       <TechBadge icon="lineicons:tailwindcss" label="TailwindCSS" />
-      <TechBadge icon="fa6-brands:sass" label="Sass" />
-      <TechBadge icon="fluent-mdl2:linux-logo-32"  label="Linux" />
       <TechBadge icon="lineicons:astro" label="Astro" />
       <TechBadge icon="lineicons:react" label="React" />
       <TechBadge icon="lineicons:flutter" label="Flutter" />
-      <TechBadge icon="devicon-plain:matlab" label="MatLab" />
-      <TechBadge icon="devicon-plain:cplusplus" label="C++" />
-      <TechBadge icon="file-icons:assembly-generic" label="Assembly" />
-      <TechBadge icon="simple-icons:odoo" label="Odoo / Owl" />
-      <TechBadge icon="lineicons:wordpress"  label="Wordpress" />
+      <TechBadge icon="simple-icons:gsap" label="gsap" />
+      <TechBadge icon="devicon-plain:pixijs-wordmark" label="PixiJS" />
+    </div>
+  </div>
+  <div class="flex flex-col gap-4 mt-6.5">
+    <h2 class="flex items-center gap-2 font-extrabold text-3xl">
+      <Icon name="mdi:new-box" class="text-blue-700" />Recent Activity
+    </h2>
+    <div class="flex flex-row gap-1 bg-neutral-100/60 py-6 pr-6 pl-10 rounded-2xl max-w-full overflow-x-auto">
+      <Activity
+        icon="stash:circle-dot"
+        date="October 2025"
+        title="Redesign of Kiseki's Atelier"
+        content="Kiseki's Atelier Project has been retaken after many months in a limbo. The entire site was rebuilt from scratch–although still written in Astro."
+      />
+      <Activity
+        icon="stash:circle-dot"
+        date="October 2025"
+        title="Redesign of Kiseki's Atelier"
+        content="Kiseki's Atelier Project has been retaken after many months in a limbo. The entire site was rebuilt from scratch–although still written in Astro."
+      />
+      <Activity
+        icon="stash:circle-dot"
+        date="October 2025"
+        title="Redesign of Kiseki's Atelier"
+        content="Kiseki's Atelier Project has been retaken after many months in a limbo. The entire site was rebuilt from scratch–although still written in Astro."
+      />
+      <Activity
+        icon="stash:circle-dot"
+        date="October 2025"
+        title="Redesign of Kiseki's Atelier"
+        content="Kiseki's Atelier Project has been retaken after many months in a limbo. The entire site was rebuilt from scratch–although still written in Astro."
+      />
+      <Activity
+        icon="stash:circle-dot"
+        date="October 2025"
+        title="Redesign of Kiseki's Atelier"
+        content="Kiseki's Atelier Project has been retaken after many months in a limbo. The entire site was rebuilt from scratch–although still written in Astro."
+      />
+      <Activity
+        icon="stash:circle-dot"
+        date="October 2025"
+        title="Redesign of Kiseki's Atelier"
+        content="Kiseki's Atelier Project has been retaken after many months in a limbo. The entire site was rebuilt from scratch–although still written in Astro."
+      />
+      <Activity
+        icon="stash:circle-dot"
+        date="October 2025"
+        title="Redesign of Kiseki's Atelier"
+        content="Kiseki's Atelier Project has been retaken after many months in a limbo. The entire site was rebuilt from scratch–although still written in Astro."
+      />
     </div>
   </div>
 </MainLayout>

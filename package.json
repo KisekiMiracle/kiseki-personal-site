@@ -44,6 +44,7 @@
 		"@iconify-json/fluent-mdl2": "^1.2.1",
 		"@iconify-json/lineicons": "^1.2.6",
 		"@iconify-json/simple-icons": "^1.2.54",
+		"@iconify-json/stash": "^1.2.4",
 		"@iconify/icons-simple-line-icons": "^1.2.3",
 		"@tailwindcss/typography": "^0.5.16",
 		"wrangler": "^4.37.1"
