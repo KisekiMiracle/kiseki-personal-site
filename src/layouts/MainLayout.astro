@@ -4,6 +4,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Sidemenu from "../components/navigation/Sidemenu.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { ClientRouter, fade, slide } from "astro:transitions";
+import Footer from "../components/section/Footer.astro";
 
 const { title, coverSrc, coverPosition } = Astro.props;
 ---
@@ -19,13 +20,17 @@ const { title, coverSrc, coverPosition } = Astro.props;
       <aside class="flex flex-col gap-6">
         <Sidemenu />
       </aside>
-      <section
-        class="flex flex-col gap-12 bg-white shadow-lg shadow-neutral-200 pb-8 rounded-2xl max-w-4xl overflow-hidden"
-      >
-        <Cover imgSource={coverSrc} position={coverPosition}/>
-        <article class="flex flex-col gap-4 px-14">
-          <slot />
-        </article>
+      <section class="flex flex-col gap-8">
+        <slot name="extraContent" />
+        <div
+          class="flex flex-col gap-12 bg-white shadow-lg shadow-neutral-200 pb-8 rounded-2xl max-w-4xl overflow-hidden"
+        >
+          <Cover imgSource={coverSrc} position={coverPosition} />
+          <article class="flex flex-col gap-4 px-14">
+            <slot/>
+          </article>
+        </div>
+        <Footer />
       </section>
       <script>
         document.addEventListener("astro:page-load", () => {

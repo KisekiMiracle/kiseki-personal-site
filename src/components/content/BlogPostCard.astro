@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 import BlogTag from "../badges/Tag.astro";
 
-const { tagLabel, tagIcon, tagType } = Astro.props;
+const { tagLabel, tagIcon, tagType, imgSrc = "https://picsum.photos/300/320" } = Astro.props;
 ---
 
 <div
@@ -69,7 +69,7 @@ const { tagLabel, tagIcon, tagType } = Astro.props;
       />
     </div>
     <img
-      src="https://picsum.photos/300/320"
+      src={imgSrc}
       alt=""
       class="w-full h-full max-h-[262px]"
     />

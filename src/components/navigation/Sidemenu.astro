@@ -2,43 +2,65 @@
 /** biome-ignore-all lint/correctness/noUnusedImports: <uneeded> */
 import { Image } from "astro:assets";
 import Link from "../navigation/SidemenuLink.astro";
+import vgenIcon from "../../assets/vgen.png";
 import { Icon } from "astro-icon/components";
 
 import imgPfp from "../../assets/pfp.png";
 ---
 
-<section
-  class="top-6 sticky flex flex-col items-center gap-4 max-w-xs"
-  
->
-  <div class="flex flex-col items-center gap-4 bg-white shadow-lg shadow-neutral-200 px-6 py-8 rounded-2xl" transition:persist>
-    <Image
-      alt=""
-      inferSize={true}
-      src={imgPfp}
-      class="rounded-2xl w-24 h-24"
-    />
+<section class="top-6 sticky flex flex-col items-center gap-4 max-w-xs">
+  <div
+    class="flex flex-col items-center gap-4 bg-white shadow-lg shadow-neutral-200 px-6 py-8 rounded-2xl"
+    transition:persist
+  >
+    <Image alt="" inferSize={true} src={imgPfp} class="rounded-2xl w-24 h-24" />
     <h1 class="font-bold text-2xl">Kiseki 奇跡</h1>
     <p>奇跡のアトリエへようこそ！</p>
     <div class="flex items-center gap-4">
-      <Icon
-        name="fa6-brands:square-x-twitter"
-        class="scale-150 hover:cursor-pointer"
-        data-sidemenu-icon
-      />
-      <Icon
-        name="fa6-brands:square-github"
-        class="hover:text-purple-900 scale-150 transition-colors duration-150 hover:cursor-pointer"
-        data-sidemenu-icon
-      />
-      <Icon
-        name="fa6-brands:pixiv"
-        class="hover:text-blue-700 scale-150 transition-colors duration-150 hover:cursor-pointer"
-        data-sidemenu-icon
-      />
+      <a
+        href="https://x.com/_kiseki_miracle"
+        rel="noreferrer noopener"
+        target="_blank"
+      >
+        <Icon
+          name="fa6-brands:square-x-twitter"
+          class="scale-150 hover:cursor-pointer"
+          data-sidemenu-icon
+        />
+      </a>
+      <a
+        href="https://github.com/KisekiMiracle"
+        rel="noreferrer noopener"
+        target="_blank"
+      >
+        <Icon
+          name="fa6-brands:square-github"
+          class="hover:text-purple-900 scale-150 transition-colors duration-150 hover:cursor-pointer"
+          data-sidemenu-icon
+        />
+      </a>
+      <a
+        href="https://www.pixiv.net/en/users/110005305"
+        rel="noreferrer noopener"
+        target="_blank"
+      >
+        <Icon
+          name="fa6-brands:pixiv"
+          class="hover:text-blue-700 scale-150 transition-colors duration-150 hover:cursor-pointer"
+          data-sidemenu-icon
+        />
+      </a>
+      <a
+        href="https://vgen.co/KisekiMiracle"
+        rel="noopener noreferrer"
+        target="_blank"
+        ><Image src={vgenIcon} alt="VGen" class="w-[24px] h-[24px] scale-150" data-sidemenu-icon/></a
+      >
     </div>
   </div>
-  <div class="flex flex-col justify-start bg-white shadow-lg shadow-neutral-200 px-6 py-8 rounded-2xl w-full">
+  <div
+    class="flex flex-col justify-start bg-white shadow-lg shadow-neutral-200 px-6 py-8 rounded-2xl w-full"
+  >
     <Link leadingIcon="home" label="Home" url="/" />
     <Link leadingIcon="file-text" label="About" url="/about" />
     <Link leadingIcon="book" label="Blog" url="/blog" />

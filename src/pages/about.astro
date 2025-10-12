@@ -3,7 +3,6 @@ import { fade } from "astro:transitions";
 import MainLayout from "../layouts/MainLayout.astro";
 import Tag from "../components/badges/Tag.astro";
 import TechBadge from "../components/badges/TechBadge.astro";
-
 import coverImg from "../../src/assets/marina_beach.png";
 import { Icon } from "astro-icon/components";
 import Activity from "../components/badges/Activity.astro";
@@ -28,10 +27,7 @@ import Activity from "../components/badges/Activity.astro";
         <Tag icon="fa6-brands:github" label="Github" color="neutral" />
       </div>
       <p class="text-[16px]">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-        voluptatibus numquam consequatur magnam, non nemo eius dignissimos
-        minima perspiciatis ratione libero laborum. Eius, ipsam fugiat ab
-        laboriosam provident ratione ea?
+        Haroo Haroo~ Name's Kiseki~ Pleased to meet ya! I am a pixel artist and a full-time frontend web developer. My web skills may be rough on the edges and I may have not the best knowledge on what "clean code" is in a wider environment, but I try my best! About my artworks–I invite you to take a peek at them over Twitter or Pixiv, where I share my art with the world~
       </p>
     </div>
   </div>
@@ -52,15 +48,15 @@ import Activity from "../components/badges/Activity.astro";
       <TechBadge icon="lineicons:astro" label="Astro" />
       <TechBadge icon="lineicons:react" label="React" />
       <TechBadge icon="lineicons:flutter" label="Flutter" />
-      <TechBadge icon="simple-icons:gsap" label="gsap" />
-      <TechBadge icon="devicon-plain:pixijs-wordmark" label="PixiJS" />
     </div>
   </div>
   <div class="flex flex-col gap-4 mt-6.5">
     <h2 class="flex items-center gap-2 font-extrabold text-3xl">
       <Icon name="mdi:new-box" class="text-blue-700" />Recent Activity
     </h2>
-    <div class="flex flex-row gap-1 bg-neutral-100/60 py-6 pr-6 pl-10 rounded-2xl max-w-full overflow-x-auto">
+    <div
+      class="flex flex-row gap-1 bg-neutral-100/60 py-6 pr-6 pl-10 rounded-2xl max-w-full overflow-x-auto"
+    >
       <Activity
         icon="stash:circle-dot"
         date="October 2025"
@@ -69,40 +65,22 @@ import Activity from "../components/badges/Activity.astro";
       />
       <Activity
         icon="stash:circle-dot"
-        date="October 2025"
-        title="Redesign of Kiseki's Atelier"
-        content="Kiseki's Atelier Project has been retaken after many months in a limbo. The entire site was rebuilt from scratch–although still written in Astro."
-      />
-      <Activity
-        icon="stash:circle-dot"
-        date="October 2025"
-        title="Redesign of Kiseki's Atelier"
-        content="Kiseki's Atelier Project has been retaken after many months in a limbo. The entire site was rebuilt from scratch–although still written in Astro."
-      />
-      <Activity
-        icon="stash:circle-dot"
-        date="October 2025"
-        title="Redesign of Kiseki's Atelier"
-        content="Kiseki's Atelier Project has been retaken after many months in a limbo. The entire site was rebuilt from scratch–although still written in Astro."
-      />
-      <Activity
-        icon="stash:circle-dot"
-        date="October 2025"
-        title="Redesign of Kiseki's Atelier"
-        content="Kiseki's Atelier Project has been retaken after many months in a limbo. The entire site was rebuilt from scratch–although still written in Astro."
-      />
-      <Activity
-        icon="stash:circle-dot"
-        date="October 2025"
-        title="Redesign of Kiseki's Atelier"
-        content="Kiseki's Atelier Project has been retaken after many months in a limbo. The entire site was rebuilt from scratch–although still written in Astro."
-      />
-      <Activity
-        icon="stash:circle-dot"
-        date="October 2025"
-        title="Redesign of Kiseki's Atelier"
-        content="Kiseki's Atelier Project has been retaken after many months in a limbo. The entire site was rebuilt from scratch–although still written in Astro."
+        date="March 2025"
+        title="Kiseki's Atelier is born"
+        content="Kiseki's Atelier Project is started."
       />
     </div>
+  </div>
+  <div class="flex flex-col gap-1 mt-5">
+    <h2 class="flex items-center gap-2 font-extrabold text-3xl">
+      <Icon name="lineicons:github" class="text-blue-700" />Github Repository
+    </h2>
+    <p>
+      If for some reason you are curious about how this website was built, you
+      can check the repo over <a href="https://github.com/KisekiMiracle/kiseki-personal-site" rel="noopener noreferrer" class="border-b-2 border-b-blue-700 hover:border-b-transparent text-blue-700 hover:text-blue-500 transition-all duration-150 700">here</a>. My commit messages are really vague
+      at the beginning due to just pushing code to bounce off my macbook and PC
+      (I only coded on the PC once) at the early stages of development. Also, I
+      have no idea if my way of coding is "proper" nor "clear"–I try my best.
+    </p>
   </div>
 </MainLayout>

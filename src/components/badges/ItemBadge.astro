@@ -1,0 +1,33 @@
+---
+import { Icon } from "astro-icon/components"
+const textClr: any = {
+  neutral: "text-neutral-700",
+	blue: "text-blue-700",
+	red: "text-red-700",
+	amber: "text-amber-700",
+	green: "text-green-700",
+	pink: "text-pink-700",
+	purple: "text-purple-700",
+	// …
+};
+const BG: any = {
+  neutral: "bg-neutral-100",
+	blue: "bg-blue-100",
+	red: "bg-red-100",
+	amber: "bg-amber-100",
+	green: "bg-green-100",
+	pink: "bg-pink-100",
+	purple: "bg-purple-100",
+	// …
+};
+
+const { title, content, leadingIcon, color = 'neutral', ref = "/blog" } = Astro.props;
+---
+
+<a class="gap-3 grid shadow-md shadow-neutral-300 px-4 py-4 border-[1px] border-neutral-200/60 rounded-2xl" style="grid-template-columns: auto 1fr;" href={ref}>
+  <Icon name={leadingIcon} class=`p-3 rounded-full w-[54px] h-[54px] ${textClr[color]} ${BG[color]}`/>
+  <p class="flex flex-col gap-0.5">
+    <span class="font-extrabold text-md text-neutral-700">{title}</span>
+    <small class="text-neutral-500">{content}</small>
+  </p>
+</a>

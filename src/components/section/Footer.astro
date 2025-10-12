@@ -1,8 +1,69 @@
 ---
+import { Icon } from "astro-icon/components";
+import vgenIcon from "../../assets/vgen.png";
+import { Image } from "astro:assets";
 
+const yearNow = new Date().getFullYear();
 ---
 
-<footer class="bg-neutral-700 px-4 py-2 font-normal text-white">
-    <h1>Attributions:</h1>
-    <p>Font Awesome 6 Brands by <a href="https://github.com/FortAwesome/Font-Awesome" class="text-blue-200 hover:decoration-transparent underline transition-color duration-150" rel="noreferrer noopener" target="_blank">Dave Gandy</a></p>
+<footer
+  class="flex justify-between items-end gap-2 bg-white shadow-lg shadow-neutral-300 px-14 py-8 rounded-2xl max-w-4xl overflow-hidden text-neutral-500 text-sm"
+>
+  <p class="flex flex-col gap-1">
+    <Icon name="system-uicons:cubes" class="text-neutral-400 text-6xl" />
+    <span
+      >Developed with <a
+        href="https://astro.build"
+        rel="noopener noreferrer"
+        target="_blank"
+        class="border-b-2 border-b-neutral-800 hover:border-b-transparent text-neutral-700 text-semibold hover:text-neutral-500 transition-all duration-150"
+        >Astro</a
+      >.</span
+    >
+    <span>
+      Heavily inspired by <a
+        class="border-b-2 border-b-neutral-800 hover:border-b-transparent text-neutral-700 text-semibold hover:text-neutral-500 transition-all duration-150"
+        href="https://frosti.saroprock.com"
+        rel="noopener noreferrer"
+        target="_blank">Frosti Theme</a
+      >, developed by <a
+        class="border-b-2 border-b-neutral-800 hover:border-b-transparent text-neutral-700 text-semibold hover:text-neutral-500 transition-all duration-150"
+        href="https://github.com/EveSunMaple"
+        rel="noopener noreferrer"
+        target="_blank">SunMapple</a
+      >
+    </span>
+    <span>
+      Copyright <strong>© KisekiMiracle {yearNow}</strong> - All rights reserved.
+    </span>
+  </p>
+  <p class="flex flex-col gap-2 text-extrabold text-md uppercase">
+    Socials
+    <span class="flex gap-1 text-neutral-700">
+      <a
+        href="https://www.pixiv.net/en/users/110005305"
+        rel="noopener noreferrer"
+        target="_blank"
+        ><Icon name="fa6-brands:pixiv" class="w-[28px] h-[28px]" /></a
+      >
+      <a
+        href="https://x.com/_kiseki_miracle"
+        rel="noopener noreferrer"
+        target="_blank"
+        ><Icon name="fa6-brands:x-twitter" class="w-[28px] h-[28px]" /></a
+      >
+      <a
+        href="https://github.com/KisekiMiracle"
+        rel="noopener noreferrer"
+        target="_blank"
+        ><Icon name="fa6-brands:github" class="w-[28px] h-[28px]" /></a
+      >
+      <a
+        href="https://vgen.co/KisekiMiracle"
+        rel="noopener noreferrer"
+        target="_blank"
+        ><Image src={vgenIcon} alt="VGen" class="w-[28px] h-[28px]" /></a
+      >
+    </span>
+  </p>
 </footer>
