@@ -12,6 +12,8 @@ const { imgSource, position = "object-center" } = Astro.props;
   <Image
     src={imgSource}
     alt=""
+    width="900"
+    height="400"
     inferSize={true}
     class=`w-max max-h-[400px] object-cover ${position}`
   />

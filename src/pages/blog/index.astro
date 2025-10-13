@@ -4,19 +4,16 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import BlogPostCard from "../../components/content/BlogPostCard.astro";
 import ItemBadge from "../../components/badges/ItemBadge.astro";
 import Cover from "../../assets/marina_beach.png";
-import { getCollection } from "astro:content";
 
-// const blogPosts = Object.values(
-//   import.meta.glob("../content/blog/*.md", { eager: true })
-// );
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+const blogPosts = Object.values(
+  import.meta.glob("./*.{md,mdx}", { eager: true })
 );
 ---
 
 <MainLayout
   title="Atelier | Home"
   coverSrc={Cover}
+  coverPosition="object-bottom"
   transition:animate={fade({ duration: "0.4s" })}
 >
   <aside slot="extraContent" class="gap-x-4 gap-y-4 grid grid-cols-2">
@@ -51,15 +48,21 @@ const posts = (await getCollection("blog")).sort(
     opinions, unless specified, are of my own. Tune in, and discover what I have
     to say~
   </p>
-  <div>
+  <ul class="flex flex-col gap-4">
     {
-      posts.map((post) => (
+      blogPosts.map((post: any) => (
         <li>
-          <a href={`/blog/${post.id}/`}>
-            <h4 class="title">{post.data.title}</h4>
-          </a>
+          <BlogPostCard
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            ref={`/blog/${post.frontmatter.url}/`}
+            imgSrc={post.frontmatter.heroImage}
+            wordCount={post.frontmatter.wordCount}
+            readTime={post.frontmatter.readTime}
+            pubDate={post.frontmatter.pubDate}
+          />
         </li>
       ))
     }
-  </div>
+  </ul>
 </MainLayout>

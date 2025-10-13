@@ -1,0 +1,45 @@
+---
+import { fade } from "astro:transitions";
+import MainLayout from "./MainLayout.astro";
+import Cover from "../assets/marina_beach.png";
+import Tag from "../components/badges/Tag.astro";
+import { Icon } from "astro-icon/components";
+
+const { frontmatter } = Astro.props;
+---
+
+<MainLayout
+  title="Atelier | Home"
+  coverSrc={frontmatter.heroImage}
+  coverPosition={frontmatter.heroImagePosition}
+  transition:animate={fade({ duration: "0.4s" })}
+>
+  <div class="items-start grid" style="grid-template-columns: auto 1fr;">
+    <div class="flex flex-wrap items-center gap-2">
+      <Tag icon="mdi:folder-open" label="Documentation" color="blue" />
+      <Tag icon="mdi:folder-open" label="Documentation" color="blue" />
+    </div>
+    <p
+      class="flex justify-end items-center gap-0.5 text-neutral-500 text-sm whitespace-nowrap"
+    >
+      <span class="flex items-center gap-1"
+        ><Icon name="mdi:book-open-page-variant" />{frontmatter.wordCount} words</span
+      >
+      <Icon name="mdi:dot" />
+      <span class="flex items-center gap-0.5"
+        ><Icon name="mdi:timer-sand" />{frontmatter.readTime} minutes</span
+      >
+    </p>
+  </div>
+  <div class="flex flex-col gap-1 mt-2.5 pl-4 border-l-6 border-l-neutral-700">
+    <h1 class="font-extrabold text-4xl">{frontmatter.title}</h1>
+    <p class="flex items-center gap-1 text-neutral-500">
+      <span>by @{frontmatter.author}</span>– <Icon
+        name="mdi:clock-time-three-outline"
+      /><span>{new Date(frontmatter.pubDate).toDateString()}</span>
+    </p>
+  </div>
+  <div class="mt-6 prose lg:prose-xl">
+    <slot />
+  </div>
+</MainLayout>

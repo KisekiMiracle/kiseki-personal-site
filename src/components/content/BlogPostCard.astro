@@ -2,7 +2,18 @@
 import { Icon } from "astro-icon/components";
 import BlogTag from "../badges/Tag.astro";
 
-const { tagLabel, tagIcon, tagType, imgSrc = "https://picsum.photos/300/320" } = Astro.props;
+const {
+  tagLabel,
+  tagIcon,
+  tagType,
+  imgSrc = "https://picsum.photos/300/320",
+  title = "Title",
+  description = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta excepturi aspernatur, quod atque animi neque.",
+  wordCount = 0,
+  readTime = 0,
+  pubDate = 'Jan 01 2000',
+  ref = "/blog",
+} = Astro.props;
 ---
 
 <div
@@ -14,39 +25,41 @@ const { tagLabel, tagIcon, tagType, imgSrc = "https://picsum.photos/300/320" } =
         class="flex items-center gap-3 text-neutral-500 text-sm whitespace-nowrap"
       >
         <span class="flex items-center gap-1"
-          ><Icon name="mdi:calendar-outline" />01/01/2025</span
+          ><Icon name="mdi:calendar-outline" />{new Date(pubDate).toDateString()}</span
         >
-        <span class="flex items-center gap-0.5"
+        <!-- <span class="flex items-center gap-0.5"
           ><Icon name="mdi:bookmark-outline" />type</span
-        >
+        > -->
       </p>
       <p
         class="flex justify-end items-center gap-0.5 text-neutral-500 text-sm whitespace-nowrap"
       >
         <span class="flex items-center gap-1"
-          ><Icon name="mdi:book-open-page-variant" />0 words</span
+          ><Icon name="mdi:book-open-page-variant" />{wordCount} words</span
         >
         <Icon name="mdi:dot" />
         <span class="flex items-center gap-0.5"
-          ><Icon name="mdi:timer-sand" />0 minutes</span
+          ><Icon name="mdi:timer-sand" />{readTime} minutes</span
         >
       </p>
     </div>
-    <h3
-      class="pl-2 border-l-6 border-l-blue-700 w-fit font-extrabold hover:text-blue-700 text-xl transition-colors duration-150 hover:cursor-pointer"
-      data-title
-    >
-      <span class="flex items-center gap-2"
-        >Title of Blog <Icon
-          name="mdi:chevron-double-right"
-          class="hidden translate-x-[-20px]"
-        /></span
+    <a href={ref}>
+      <h3
+        class="pl-2 border-l-6 border-l-blue-700 w-fit font-extrabold hover:text-blue-700 text-xl transition-colors duration-150"
+        data-title
       >
-      <hr class="border-t-2 border-b-2 w-0" />
-    </h3>
+        <span class="flex items-center gap-2"
+          >{title}
+          <Icon
+            name="mdi:chevron-double-right"
+            class="hidden translate-x-[-20px]"
+          /></span
+        >
+        <hr class="border-t-2 border-b-2 w-0" />
+      </h3>
+    </a>
     <p class="mt-[-10px]">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta excepturi
-      aspernatur, quod atque animi neque.
+      {description}
     </p>
     <div class="flex flex-row gap-2">
       <BlogTag icon="mdi:folder-open" label="Documentation" color="blue" />
@@ -57,7 +70,7 @@ const { tagLabel, tagIcon, tagType, imgSrc = "https://picsum.photos/300/320" } =
       />
     </div>
   </div>
-  <a class="relative w-full h-full hover:cursor-pointer" href="/blog">
+  <a class="relative w-full h-full hover:cursor-pointer" href={ref}>
     <div
       class="top-0 right-0 left-0 z-10 absolute bg-zinc-900 opacity-50 w-0 h-full"
       data-img
@@ -68,11 +81,7 @@ const { tagLabel, tagIcon, tagType, imgSrc = "https://picsum.photos/300/320" } =
         data-chevron
       />
     </div>
-    <img
-      src={imgSrc}
-      alt=""
-      class="w-full h-full max-h-[262px]"
-    />
+    <img src={imgSrc} alt="" class="w-full h-[262px] max-h-[262px] object-cover" />
   </a>
 </div>
 
