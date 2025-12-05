@@ -10,13 +10,16 @@
 		"deploy": "npx astro build && npx wrangler pages deploy ./dist"
 	},
 	"dependencies": {
-		"@astrojs/cloudflare": "^12.6.8",
+		"@astrojs/cloudflare": "^12.6.12",
 		"@astrojs/compiler": "^2.13.0",
 		"@astrojs/mdx": "^4.3.5",
 		"@astrojs/react": "^4.3.1",
 		"@astrojs/rss": "^4.0.12",
 		"@astrojs/sitemap": "^3.5.1",
 		"@iconify-icons/simple-line-icons": "^1.2.3",
+		"@iconify-json/ix": "^1.2.10",
+		"@iconify-json/logos": "^1.2.10",
+		"@iconify-json/material-symbols": "^1.2.44",
 		"@iconify-json/mdi": "^1.2.3",
 		"@iconify-json/system-uicons": "^1.2.4",
 		"@react-email/components": "^0.5.3",
@@ -28,6 +31,7 @@
 		"astro-icon": "^1.1.5",
 		"feather-icons": "^4.29.2",
 		"gsap": "^3.13.0",
+		"pg": "^8.16.3",
 		"react": "^19.1.1",
 		"react-dom": "^19.1.1",
 		"resend": "^6.1.0",
@@ -50,6 +54,7 @@
 		"@iconify-json/stash": "^1.2.4",
 		"@iconify/icons-simple-line-icons": "^1.2.3",
 		"@tailwindcss/typography": "^0.5.19",
+		"@types/pg": "^8.15.6",
 		"wrangler": "^4.37.1"
 	}
 }

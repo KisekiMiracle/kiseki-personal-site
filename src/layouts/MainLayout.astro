@@ -1,4 +1,7 @@
 ---
+/** biome-ignore-all lint/correctness/noUnusedImports: <-> */
+/** biome-ignore-all assist/source/organizeImports: <-> */
+
 import Cover from "../components/section/Cover.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Sidemenu from "../components/navigation/Sidemenu.astro";
@@ -6,7 +9,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { ClientRouter, fade, slide } from "astro:transitions";
 import Footer from "../components/section/Footer.astro";
 
+// biome-ignore lint/correctness/noUnusedVariables: <->
 const { title, coverSrc, coverPosition } = Astro.props;
+
+export const prerender = false;
 ---
 
 <!doctype html>
@@ -15,7 +21,7 @@ const { title, coverSrc, coverPosition } = Astro.props;
     <BaseHead title={title} description={SITE_DESCRIPTION} />
     <ClientRouter />
   </head>
-  <body class="bg-neutral-100/60">
+  <body class="relative bg-neutral-100/60">
     <main class="flex justify-center gap-8 py-6 text-neutral-800">
       <aside class="flex flex-col gap-6">
         <Sidemenu />
@@ -27,7 +33,7 @@ const { title, coverSrc, coverPosition } = Astro.props;
         >
           <Cover imgSource={coverSrc} position={coverPosition} />
           <article class="flex flex-col gap-4 px-14">
-            <slot/>
+            <slot />
           </article>
         </div>
         <Footer />
@@ -35,6 +41,7 @@ const { title, coverSrc, coverPosition } = Astro.props;
       <script>
         document.addEventListener("astro:page-load", () => {
           // This runs on first page load and after every navigation.
+          // @ts-expect-error <->
           feather.replace();
         });
       </script>

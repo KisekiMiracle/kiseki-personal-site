@@ -5,7 +5,8 @@ interface Props {
   imgSource: any;
   position: string;
 }
-const { imgSource, position = "object-center" } = Astro.props;
+
+const { imgSource, position = "object-center" }: Props = Astro.props;
 ---
 
 <div>

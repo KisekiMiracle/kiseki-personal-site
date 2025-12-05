@@ -3,7 +3,7 @@ import { fade } from "astro:transitions";
 import MainLayout from "../../layouts/MainLayout.astro";
 import BlogPostCard from "../../components/content/BlogPostCard.astro";
 import ItemBadge from "../../components/badges/ItemBadge.astro";
-import Cover from "../../assets/marina_beach.png";
+import coverImg from "../../../src/assets/banner_blog.jpg";
 
 const blogPosts = Object.values(
   import.meta.glob("./*.{md,mdx}", { eager: true })
@@ -11,8 +11,8 @@ const blogPosts = Object.values(
 ---
 
 <MainLayout
-  title="Atelier | Home"
-  coverSrc={Cover}
+  title="Blog | Kiseki's Atelier"
+  coverSrc={coverImg}
   coverPosition="object-bottom"
   transition:animate={fade({ duration: "0.4s" })}
 >
@@ -50,7 +50,8 @@ const blogPosts = Object.values(
   </p>
   <ul class="flex flex-col gap-4">
     {
-      blogPosts.map((post: any) => (
+      // @ts-expect-error
+      blogPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontmatter.pubDate)).map((post: any) => (
         <li>
           <BlogPostCard
             title={post.frontmatter.title}

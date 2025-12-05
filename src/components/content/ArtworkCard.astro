@@ -1,0 +1,78 @@
+---
+/** biome-ignore-all assist/source/organizeImports: <-> */
+/** biome-ignore-all lint/correctness/noUnusedImports: <-> */
+import { Image } from "astro:assets";
+import Tag from "../badges/Tag.astro";
+import type { JSX } from "astro/jsx-runtime";
+
+interface Props {
+  title: string;
+  description: string;
+  img: ImageMetadata;
+}
+
+// biome-ignore lint/correctness/noUnusedVariables: <->
+const { title, description, img }: Props = Astro.props;
+---
+
+<div
+  class="gap-8 grid grid-cols-2 shadow-md p-8 border border-neutral-100 rounded-2xl overflow-hidden"
+>
+  <Image src={img} alt={description} class="hover:cursor-pointer" data-img />
+  <div class="flex flex-col justify-between gap-2">
+    <div class="flex flex-col">
+      <h3 class="font-bold text-xl">{title}</h3>
+      <hr class="mb-4 text-neutral-300" />
+      <span class="text-[16px]">{description}</span>
+    </div>
+    <div class="flex gap-2">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const backdrop = document.createElement("div");
+    backdrop.setAttribute(
+      "style",
+      "width: 100dvw; height: 100dvh; background-color: rgba(10,10,10,.85); position: absolute; transition: all 0.175s; left: 0; backdrop-filter: blur(2px); justify-content: center; align-items: center;"
+    );
+    const disposeBackdrop = () => {
+      backdrop.style.display = "none";
+      document.body.removeChild(backdrop);
+      backdrop.removeEventListener("click", disposeBackdrop);
+      document.removeEventListener("wheel", forbidScroll);
+    };
+    const forbidScroll = (e: Event) => e.preventDefault();
+    const toggleBackdrop = () => {
+      const posY =
+        document.querySelector("main section > div")!.getBoundingClientRect()
+          .top +
+        window.scrollY -
+        24;
+      backdrop.style.display = "flex";
+      backdrop.style.zIndex = "9";
+      backdrop.style.top = String(posY + "px");
+      document.body.appendChild(backdrop);
+      document.addEventListener("wheel", forbidScroll, { passive: false });
+      backdrop.addEventListener("click", disposeBackdrop);
+    };
+
+    const zoomImg = document.createElement("img");
+    zoomImg.setAttribute("alt", "");
+    const toggleZoomedImg = (src: string) => {
+      zoomImg.setAttribute("src", src);
+      backdrop.appendChild(zoomImg);
+    };
+
+    const imgs = document.querySelectorAll("[data-img]");
+    imgs.forEach((img) => {
+      img.addEventListener("click", () => {
+        toggleBackdrop();
+        // @ts-expect-error <->
+        toggleZoomedImg(img.src);
+      });
+    });
+  });
+</script>

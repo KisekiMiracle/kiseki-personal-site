@@ -50,12 +50,6 @@ import imgPfp from "../../assets/pfp.png";
           data-sidemenu-icon
         />
       </a>
-      <a
-        href="https://vgen.co/KisekiMiracle"
-        rel="noopener noreferrer"
-        target="_blank"
-        ><Image src={vgenIcon} alt="VGen" class="w-[24px] h-[24px] scale-150" data-sidemenu-icon/></a
-      >
     </div>
   </div>
   <div
@@ -64,10 +58,10 @@ import imgPfp from "../../assets/pfp.png";
     <Link leadingIcon="home" label="Home" url="/" />
     <Link leadingIcon="file-text" label="About" url="/about" />
     <Link leadingIcon="book" label="Blog" url="/blog" />
-    <Link leadingIcon="code" label="Projects" url="/" />
-    <Link leadingIcon="edit-3" label="Artworks" url="/" />
-    <Link leadingIcon="award" label="Attribution" url="/" />
-    <Link leadingIcon="message-circle" label="Contact Me!" url="/" />
+    <Link leadingIcon="code" label="Projects" url="/projects" />
+    <Link leadingIcon="edit-3" label="Artworks" url="/artworks" />
+    <Link leadingIcon="award" label="Attribution" url="/attribution" />
+    <Link leadingIcon="message-circle" label="Contact Me!" url="/contact" />
   </div>
 </section>
 
@@ -83,6 +77,6 @@ import imgPfp from "../../assets/pfp.png";
       icon.addEventListener("mouseleave", () => {
         gsap.to(icon, { scale: 1.5, duration: 0.175 });
       });
-    }); // e.g. add event listeners
+    });
   });
 </script>

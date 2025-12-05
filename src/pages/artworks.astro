@@ -1,0 +1,54 @@
+---
+/** biome-ignore-all assist/source/organizeImports: <-> */
+/** biome-ignore-all lint/correctness/noUnusedImports: <-> */
+import MainLayout from "../layouts/MainLayout.astro";
+import coverImg from "../../src/assets/banner_artworks.png";
+import { fade } from "astro/virtual-modules/transitions.js";
+import ArtworkCard from "../components/content/ArtworkCard.astro";
+import img1 from "../assets/artworks__marina_idle.gif";
+import img2 from "../assets/artworks__maya_idle.gif";
+import Tag from "../components/badges/Tag.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<MainLayout
+  title="Artworks | Kiseki's Atelier"
+  coverSrc={coverImg}
+  coverPosition="object-top"
+  transition:animate={fade({ duration: "0.4s" })}
+>
+  <h1 class="font-extrabold text-4xl">Artworks</h1>
+  <span
+    >Creating Artworks since late 2019. Something that started out of nowhere
+    became the thing that kept me on going. Without art, the world would not be
+    the same.</span
+  >
+  <blockquote
+    class="px-6 py-2 border-l-4 border-l-blue-700 text-neutral-600 italic"
+  >
+    "I don't just draw–I portray an experience."
+  </blockquote>
+  <div class="flex flex-row items-center gap-2 mt-7">
+    <Icon name="material-symbols:animation" class="text-blue-700 text-4xl" />
+    <h2 class="font-extrabold text-2xl">Animated Sprites</h2>
+  </div>
+  <span>Cute, little and adorable sprites that move~ <a href="/contact" class="border-b border-b-blue-700 hovver:border-b-blue-500 text-blue-700 hover:text-blue-500 transition-colors duration-150">You can also get your own!</a></span>
+  <div class="flex flex-col gap-6">
+    <ArtworkCard
+      title="Marina Reina"
+      description="An idle animation of my OC Marina~. It is an actual videogame asset."
+      img={img1}
+    >
+      <Tag icon="mdi:cube-scan" label="Pixel Art" color="neutral" />
+      <Tag icon="mdi:heart" label="Original Character" color="pink" />
+    </ArtworkCard>
+    <ArtworkCard
+      title="Maya Sword"
+      description="A commissioned piece for @HCheeseMuffin on X / Twitter. Ain't she a cutie?"
+      img={img2}
+    >
+      <Tag icon="mdi:cube-scan" label="Pixel Art" color="neutral" />
+      <Tag icon="ix:work-case-filled" label="Commissioned Work" color="green" />
+    </ArtworkCard>
+  </div>
+</MainLayout>

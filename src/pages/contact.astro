@@ -1,0 +1,20 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import coverImg from "../../src/assets/banner_contact.jpg";
+import { fade } from "astro/virtual-modules/transitions.js";
+---
+
+<MainLayout
+  title="Contact | Kiseki's Atelier"
+  coverSrc={coverImg}
+  coverPosition="object-top"
+  transition:animate={fade({ duration: "0.4s" })}
+>
+  <h1 class="font-extrabold text-4xl">Contact</h1>
+  <span
+    >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos vitae quidem
+    perspiciatis labore tempore minima consectetur temporibus est numquam
+    placeat, corrupti, rerum consequuntur dolor veniam itaque maiores illo fuga
+    animi.</span
+  >
+</MainLayout>
