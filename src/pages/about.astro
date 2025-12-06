@@ -1,11 +1,28 @@
 ---
+// @ts-nocheck
+/** biome-ignore-all lint/correctness/noUnusedImports: <-> */
+/** biome-ignore-all assist/source/organizeImports: <-> */
 import { fade } from "astro:transitions";
 import MainLayout from "../layouts/MainLayout.astro";
 import Tag from "../components/badges/Tag.astro";
 import TechBadge from "../components/badges/TechBadge.astro";
 import coverImg from "../../src/assets/marina_beach.png";
-import { Icon } from "astro-icon/components";
 import Activity from "../components/badges/Activity.astro";
+
+// Icons
+import Fa6BrandsSquareXTwitter from "~icons/fa6-brands/square-x-twitter";
+import Fa6BrandsPixiv from "~icons/fa6-brands/pixiv";
+import Fa6BrandsGithub from "~icons/fa6-brands/github";
+import LineiconsHtml5 from "~icons/lineicons/html5";
+import LineiconsCss3 from "~icons/lineicons/css3";
+import LineiconsJavascript from "~icons/lineicons/javascript";
+import LineiconsTypescript from "~icons/lineicons/typescript";
+import LineiconsTailwindcss from "~icons/lineicons/tailwindcss";
+import LineiconsAstro from "~icons/lineicons/astro";
+import LineiconsReact from "~icons/lineicons/react";
+import LineiconsFlutter from "~icons/lineicons/flutter";
+import LineIconsCode from "~icons/lineicons/code";
+import MdiNewBox from "~icons/mdi/new-box";
 ---
 
 <MainLayout
@@ -22,37 +39,66 @@ import Activity from "../components/badges/Activity.astro";
         Pixel Artist and Frontend Web Developer
       </p>
       <div class="flex gap-2 mt-0.5">
-        <Tag icon="fa6-brands:x-twitter" label="Twitter / X" color="neutral" />
-        <Tag icon="fa6-brands:pixiv" label="Pixiv" color="neutral" />
-        <Tag icon="fa6-brands:github" label="Github" color="neutral" />
+        <Tag label="Twitter / X" color="neutral">
+          <Fa6BrandsSquareXTwitter slot="icon" />
+        </Tag>
+        <Tag label="Pixiv" color="neutral">
+          <Fa6BrandsPixiv slot="icon" />
+        </Tag>
+        <Tag label="Github" color="neutral">
+          <Fa6BrandsGithub slot="icon" />
+        </Tag>
       </div>
       <p class="text-[16px]">
-        Haroo Haroo~ Name's Kiseki~ Pleased to meet ya! I am a pixel artist and a full-time frontend web developer. My web skills may be rough on the edges and I may have not the best knowledge on what "clean code" is in a wider environment, but I try my best! About my artworks–I invite you to take a peek at them over Twitter or Pixiv, where I share my art with the world~
+        Haroo Haroo~ Name's Kiseki~ Pleased to meet ya! I am a pixel artist and
+        a full-time frontend web developer. My web skills may be rough on the
+        edges and I may have not the best knowledge on what "clean code" is in a
+        wider environment, but I try my best! About my artworks–I invite you to
+        take a peek at them over Twitter or Pixiv, where I share my art with the
+        world~
       </p>
     </div>
   </div>
   <div class="flex flex-col gap-1 mt-4">
     <h2 class="flex items-center gap-2 font-extrabold text-3xl">
-      <Icon name="lineicons:code-1" class="text-blue-700" />Statistics for Nerds
+      <LineIconsCode class="text-blue-700" />
+      Statistics for Nerds
     </h2>
     <p class="flex flex-col gap-1">
       The technological stack that I use confidently. This site was made with
       Astro, by the way.
     </p>
     <div class="gap-4 grid grid-cols-5 mt-3.5">
-      <TechBadge icon="lineicons:html5" label="HTML" />
-      <TechBadge icon="lineicons:css3" label="CSS" />
-      <TechBadge icon="lineicons:javascript" label="JavaScript" />
-      <TechBadge icon="lineicons:typescript" label="TypeScript" />
-      <TechBadge icon="lineicons:tailwindcss" label="TailwindCSS" />
-      <TechBadge icon="lineicons:astro" label="Astro" />
-      <TechBadge icon="lineicons:react" label="React" />
-      <TechBadge icon="lineicons:flutter" label="Flutter" />
+      <TechBadge label="HTML">
+        <LineiconsHtml5 class="w-12 h-12" slot="icon" />
+      </TechBadge>
+      <TechBadge icon="lineicons:css3" label="CSS">
+        <LineiconsCss3 class="w-12 h-12" slot="icon" />
+      </TechBadge>
+      <TechBadge icon="lineicons:javascript" label="JavaScript">
+        <LineiconsJavascript class="w-12 h-12" slot="icon" />
+      </TechBadge>
+      <TechBadge icon="lineicons:typescript" label="TypeScript">
+        <LineiconsTypescript class="w-12 h-12" slot="icon" />
+      </TechBadge>
+      <TechBadge icon="lineicons:tailwindcss" label="TailwindCSS">
+        <LineiconsTailwindcss class="w-12 h-12" slot="icon" />
+      </TechBadge>
+      <TechBadge icon="lineicons:astro" label="Astro">
+        <LineiconsAstro class="w-12 h-12" slot="icon" />
+      </TechBadge>
+      <TechBadge icon="lineicons:react" label="React">
+        <LineiconsReact class="w-12 h-12" slot="icon" />
+      </TechBadge>
+      <TechBadge icon="lineicons:flutter" label="Flutter">
+        <LineiconsFlutter class="w-12 h-12" slot="icon" />
+      </TechBadge>
     </div>
   </div>
   <div class="flex flex-col gap-4 mt-7 mb-4">
     <h2 class="flex items-center gap-2 font-extrabold text-3xl">
-      <Icon name="mdi:new-box" class="text-blue-700" />Recent Activity
+      <MdiNewBox class="text-blue-700" />
+      Recent Activity
     </h2>
     <div
       class="flex flex-row gap-1 bg-neutral-100/60 py-6 pr-6 pl-10 rounded-2xl max-w-full overflow-x-auto"

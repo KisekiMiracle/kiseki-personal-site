@@ -1,6 +1,18 @@
 ---
-import { Icon } from "astro-icon/components";
+// @ts-nocheck
+/** biome-ignore-all lint/correctness/noUnusedImports: <-> */
+/** biome-ignore-all assist/source/organizeImports: <-> */
 import BlogTag from "../badges/Tag.astro";
+
+// Icons
+import CalendarOutline from "~icons/mdi/calendar-outline";
+import BookOpenPageVariant from "~icons/mdi/book-open-page-variant";
+import TimerSand from "~icons/mdi/timer-sand";
+import ChevronDoubleRight from "~icons/mdi/chevron-double-right";
+import Dot from "~icons/mdi/dot";
+import ChevronCircleRight from "~icons/mdi/chevron-right-circle-outline";
+import FolderOpen from "~icons/mdi/folder-open";
+import TagOutline from "~icons/mdi/tag-outline";
 
 const {
   tagLabel,
@@ -11,7 +23,7 @@ const {
   description = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta excepturi aspernatur, quod atque animi neque.",
   wordCount = 0,
   readTime = 0,
-  pubDate = 'Jan 01 2000',
+  pubDate = "Jan 01 2000",
   ref = "/blog",
 } = Astro.props;
 ---
@@ -24,23 +36,20 @@ const {
       <p
         class="flex items-center gap-3 text-neutral-500 text-sm whitespace-nowrap"
       >
-        <span class="flex items-center gap-1"
-          ><Icon name="mdi:calendar-outline" />{new Date(pubDate).toDateString()}</span
-        >
-        <!-- <span class="flex items-center gap-0.5"
-          ><Icon name="mdi:bookmark-outline" />type</span
-        > -->
+        <span class="flex items-center gap-1">
+          <CalendarOutline />{new Date(pubDate).toDateString()}
+        </span>
       </p>
       <p
         class="flex justify-end items-center gap-0.5 text-neutral-500 text-sm whitespace-nowrap"
       >
-        <span class="flex items-center gap-1"
-          ><Icon name="mdi:book-open-page-variant" />{wordCount} words</span
-        >
-        <Icon name="mdi:dot" />
-        <span class="flex items-center gap-0.5"
-          ><Icon name="mdi:timer-sand" />{readTime} minutes</span
-        >
+        <span class="flex items-center gap-1">
+          <BookOpenPageVariant />{wordCount} words
+        </span>
+        <Dot />
+        <span class="flex items-center gap-0.5">
+          <TimerSand />{readTime} minutes
+        </span>
       </p>
     </div>
     <a href={ref}>
@@ -48,13 +57,10 @@ const {
         class="pl-2 border-l-6 border-l-blue-700 w-fit font-extrabold hover:text-blue-700 text-xl transition-colors duration-150"
         data-title
       >
-        <span class="flex items-center gap-2"
-          >{title}
-          <Icon
-            name="mdi:chevron-double-right"
-            class="hidden translate-x-[-20px]"
-          /></span
-        >
+        <span class="flex items-center gap-2">
+          {title}
+          <ChevronDoubleRight class="hidden translate-x-[-20px]" />
+        </span>
         <hr class="border-t-2 border-b-2 w-0" />
       </h3>
     </a>
@@ -62,12 +68,12 @@ const {
       {description}
     </p>
     <div class="flex flex-row gap-2">
-      <BlogTag icon="mdi:folder-open" label="Documentation" color="blue" />
-      <BlogTag
-        icon="mdi:tag-outline"
-        label="Life of an Artist"
-        color="purple"
-      />
+      <BlogTag label="Documentation" color="blue">
+        <FolderOpen slot="icon" />
+      </BlogTag>
+      <BlogTag label="Life of an Artist" color="purple">
+        <TagOutline slot="icon" />
+      </BlogTag>
     </div>
   </div>
   <a class="relative w-full h-full hover:cursor-pointer" href={ref}>
@@ -75,13 +81,16 @@ const {
       class="top-0 right-0 left-0 z-10 absolute bg-zinc-900 opacity-50 w-0 h-full"
       data-img
     >
-      <Icon
-        name="mdi:chevron-right-circle-outline"
+      <ChevronCircleRight
         class="top-0 right-0 left-0 z-11 absolute w-0 h-full text-white/50 scale-50"
         data-chevron
       />
     </div>
-    <img src={imgSrc} alt="" class="min-w-[337px] h-[262px] max-h-[262px] object-cover" />
+    <img
+      src={imgSrc}
+      alt=""
+      class="min-w-[337px] h-[262px] max-h-[262px] object-cover"
+    />
   </a>
 </div>
 

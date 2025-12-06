@@ -1,10 +1,16 @@
 ---
-import { Icon } from "astro-icon/components";
-
-const { label, icon, color = "text-neutral-800" } = Astro.props;
+const { label, color = "text-neutral-800" } = Astro.props;
 ---
 
-<div class="inset-shadow-sm inset-shadow-transparent hover:inset-shadow-neutral-400 flex flex-col items-center shadow-neutral-400 shadow-sm hover:shadow-transparent px-8 py-4 border border-transparent hover:border-neutral-100 rounded-2xl w-[116px] transition-all hover:*:translate-y-0.5 duration-150">
-  <Icon name={icon} class=`w-[48px] h-[48px] ${color} transition-all duration-150`/>
-  <h3 class=`font-semibold text-sm text-center whitespace-nowrap transition-all duration-150`>{label}</h3>
+<div
+  class="inset-shadow-sm inset-shadow-transparent hover:inset-shadow-neutral-400 flex flex-col items-center shadow-neutral-400 shadow-sm hover:shadow-transparent px-8 py-4 border border-transparent hover:border-neutral-100 rounded-2xl w-[116px] transition-all hover:*:translate-y-0.5 duration-150"
+>
+  <div class=`w-[48px] h-[48px] ${color} transition-all duration-150`>
+    <slot name="icon" />
+  </div>
+  <h3
+    class=`font-semibold text-sm text-center whitespace-nowrap transition-all duration-150`
+  >
+    {label}
+  </h3>
 </div>

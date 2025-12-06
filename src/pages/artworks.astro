@@ -8,7 +8,12 @@ import ArtworkCard from "../components/content/ArtworkCard.astro";
 import img1 from "../assets/artworks__marina_idle.gif";
 import img2 from "../assets/artworks__maya_idle.gif";
 import Tag from "../components/badges/Tag.astro";
-import { Icon } from "astro-icon/components";
+
+// Icons
+import MaterialSymbolsAnimation from "~icons/material-symbols/animation";
+import MdiCubeScan from "~icons/mdi/cube-scan";
+import MdiHeart from "~icons/mdi/heart";
+import IxWorkCaseFilled from "~icons/ix/work-case-filled";
 ---
 
 <MainLayout
@@ -29,26 +34,40 @@ import { Icon } from "astro-icon/components";
     "I don't just draw–I portray an experience."
   </blockquote>
   <div class="flex flex-row items-center gap-2 mt-7">
-    <Icon name="material-symbols:animation" class="text-blue-700 text-4xl" />
+    <MaterialSymbolsAnimation class="text-blue-700 text-4xl" />
     <h2 class="font-extrabold text-2xl">Animated Sprites</h2>
   </div>
-  <span>Cute, little and adorable sprites that move~ <a href="/contact" class="border-b border-b-blue-700 hovver:border-b-blue-500 text-blue-700 hover:text-blue-500 transition-colors duration-150">You can also get your own!</a></span>
+  <span
+    >Cute, little and adorable sprites that move~ <a
+      href="/contact"
+      class="border-b border-b-blue-700 hovver:border-b-blue-500 text-blue-700 hover:text-blue-500 transition-colors duration-150"
+      >You can also get your own!</a
+    ></span
+  >
   <div class="flex flex-col gap-6">
     <ArtworkCard
       title="Marina Reina"
       description="An idle animation of my OC Marina~. It is an actual videogame asset."
       img={img1}
     >
-      <Tag icon="mdi:cube-scan" label="Pixel Art" color="neutral" />
-      <Tag icon="mdi:heart" label="Original Character" color="pink" />
+      <Tag label="Pixel Art" color="neutral">
+        <MdiCubeScan slot="icon" />
+      </Tag>
+      <Tag label="Original Character" color="pink">
+        <MdiHeart slot="icon" />
+      </Tag>
     </ArtworkCard>
     <ArtworkCard
       title="Maya Sword"
       description="A commissioned piece for @HCheeseMuffin on X / Twitter. Ain't she a cutie?"
       img={img2}
     >
-      <Tag icon="mdi:cube-scan" label="Pixel Art" color="neutral" />
-      <Tag icon="ix:work-case-filled" label="Commissioned Work" color="green" />
+      <Tag label="Pixel Art" color="neutral">
+        <MdiCubeScan slot="icon" />
+      </Tag>
+      <Tag label="Commissioned Work" color="green">
+        <IxWorkCaseFilled slot="icon" />
+      </Tag>
     </ArtworkCard>
   </div>
 </MainLayout>

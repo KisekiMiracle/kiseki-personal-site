@@ -1,5 +1,9 @@
 ---
-import { Icon } from "astro-icon/components";
+/** biome-ignore-all lint/correctness/noUnusedImports: <-> */
+/** biome-ignore-all assist/source/organizeImports: <-> */
+
+// @ts-nocheck
+
 import BlogPostCard from "../components/content/BlogPostCard.astro";
 import ServiceCard from "../components/content/ServiceCard.astro";
 import MainLayout from "../layouts/MainLayout.astro";
@@ -20,6 +24,18 @@ import img_5 from "../assets/artworks__sendai_2024.jpeg";
 import img_6 from "../assets/frontend__ripvisuals.png";
 import img_7 from "../assets/frontend__kiseki.png";
 
+// Icons
+import MdiEmail from "~icons/mdi/email";
+import MdiStars from "~icons/mdi/stars";
+import MdiBookMultipleOutline from "~icons/mdi/book-multiple-outline";
+import MdiBriefcaseEditOutline from "~icons/mdi/briefcase-edit-outline";
+import MdiCubeScan from "~icons/mdi/cube-scan";
+import MdiArt from "~icons/mdi/art";
+import MdiMessageBubbleOutline from "~icons/mdi/message-bubble-outline";
+import LogosHtml5 from "~icons/logos/html-5";
+import FluentBook32Filled from "~icons/fluent/book-32-filled";
+
+// biome-ignore lint/correctness/noUnusedVariables: <->
 const blogPosts = Object.values(
   import.meta.glob("./blog/*.{md,mdx}", { eager: true })
 );
@@ -33,7 +49,7 @@ const blogPosts = Object.values(
   <h1
     class="flex items-center self-center gap-2 bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mt-1 font-extrabold text-transparent text-4xl"
   >
-    <Icon class="text-blue-500" name="mdi:stars" /> Kiseki's Atelier
+    <MdiStars /> Kiseki's Atelier
   </h1>
   <div
     class="flex flex-col items-center gap-4 mt-[-4px] text-bold text-neutral-600 text-center"
@@ -45,24 +61,24 @@ const blogPosts = Object.values(
     <div class="flex items-center self-center gap-2">
       <a
         href="/blog"
-        class="flex items-center gap-2 bg-blue-500 hover:bg-blue-700 px-4 py-2 border-2 border-blue-500 hover:border-blue-700 rounded-xl w-fit text-white text-sm transition-all duration-150"
-        ><Icon name="mdi:email" />
+        class="flex items-center gap-2 bg-blue-500 hover:bg-blue-700 px-4 py-2 border-2 border-blue-500 hover:border-blue-700 rounded-lg w-fit text-white text-sm transition-all duration-150"
+      >
+        <FluentBook32Filled />
         Explore Blog
       </a>
       <a
         href="/contact"
-        class="flex items-center gap-2 hover:bg-neutral-800 px-4 py-2 border-2 border-neutral-800 rounded-xl w-fit text-neutral-800 hover:text-white text-sm transition-all duration-150"
+        class="flex items-center gap-2 hover:bg-neutral-800 px-4 py-2 border-2 border-neutral-800 rounded-lg w-fit text-neutral-800 hover:text-white text-sm transition-all duration-150"
       >
-        <Icon name="mdi:email" />Contact Me!
+        <MdiEmail />
+        Contact Me!
       </a>
     </div>
   </div>
   <hr class="my-2 text-transparent" />
   <h2 class="flex items-center gap-2 font-extrabold text-3xl">
-    <Icon
-      name="mdi:book-multiple-outline"
-      class="text-blue-700 text-4xl"
-    />Recent Posts
+    <MdiBookMultipleOutline class="text-blue-700 text-4xl" />
+    Recent Posts
   </h2>
   <p class="mt-[-4px]">
     My yapping corner~ I talk about my personal life, maybe something about
@@ -88,7 +104,7 @@ const blogPosts = Object.values(
   </ul>
   <hr class="my-2 text-transparent" />
   <h2 class="flex items-center gap-2 font-extrabold text-3xl">
-    <Icon name="mdi:briefcase-edit-outline" class="text-blue-700 text-4xl" />
+    <MdiBriefcaseEditOutline class="text-blue-700 text-4xl" />
     Services
   </h2>
   <p class="mt-[-4px]">
@@ -96,11 +112,8 @@ const blogPosts = Object.values(
     those concepts a reality–is not just a drawing, but a dream come true~
   </p>
   <div class="flex flex-col gap-4">
-    <ServiceCard
-      icon="mdi:cube-scan"
-      title="Animated Pixel Art"
-      imgArr={[img_1, img_2]}
-    >
+    <ServiceCard title="Animated Pixel Art" imgArr={[img_1, img_2]}>
+      <MdiCubeScan slot="icon" />
       <span>
         Cute little animated sprites~ I try my best to bring out the charm of
         those characters. And <a
@@ -111,22 +124,19 @@ const blogPosts = Object.values(
       </span>
     </ServiceCard>
     <ServiceCard
-      icon="mdi:art"
       title="Character Illustrations"
       ref="/about"
       imgArr={[img_3, img_4, img_5]}
     >
+      <MdiArt slot="icon" />
       <span
         >Maximizing the amount of pixels in a single piece~! While pixelart
         excels in lower resolutions, I believe larger canvases have a story to
         tell.
       </span>
     </ServiceCard>
-    <ServiceCard
-      icon="logos:html-5"
-      title="Frontend Web Development"
-      imgArr={[img_6, img_7]}
-    >
+    <ServiceCard title="Frontend Web Development" imgArr={[img_6, img_7]}>
+      <LogosHtml5 slot="icon" />
       <span>
         Do you have a business that needs online positioning? Need a central hub
         to display your important links? Perhaps need help to implement the
@@ -136,10 +146,8 @@ const blogPosts = Object.values(
   </div>
   <hr class="my-2 text-transparent" />
   <h2 class="flex items-center gap-2 font-extrabold text-3xl">
-    <Icon
-      name="mdi:message-bubble-outline"
-      class="text-blue-700 text-4xl"
-    />Social Media Feed
+    <MdiMessageBubbleOutline class="text-blue-700 text-4xl" />
+    Social Media Feed
   </h2>
   <p class="mt-[-4px]">
     You can find more about my works (and sometimes, myself) over at my

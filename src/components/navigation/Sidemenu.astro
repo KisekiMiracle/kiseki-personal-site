@@ -1,9 +1,21 @@
 ---
-/** biome-ignore-all lint/correctness/noUnusedImports: <uneeded> */
+// @ts-nocheck
+/** biome-ignore-all lint/correctness/noUnusedImports: <-> */
+/** biome-ignore-all assist/source/organizeImports: <-> */
 import { Image } from "astro:assets";
 import Link from "../navigation/SidemenuLink.astro";
-import vgenIcon from "../../assets/vgen.png";
-import { Icon } from "astro-icon/components";
+
+// Icons
+import SquareXTwitter from "~icons/fa6-brands/square-x-twitter";
+import SquareGithub from "~icons/fa6-brands/square-github";
+import PixivIcon from "~icons/fa6-brands/pixiv";
+import FeatherHome from "~icons/feather/home";
+import FeatherFileText from "~icons/feather/file-text";
+import FeatherBook from "~icons/feather/book";
+import FeatherCode from "~icons/feather/code";
+import FeatherEdit3 from "~icons/feather/edit-3";
+import FeatherAward from "~icons/feather/award";
+import FeatherMessageCircle from "~icons/feather/message-circle";
 
 import imgPfp from "../../assets/pfp.png";
 ---
@@ -22,8 +34,7 @@ import imgPfp from "../../assets/pfp.png";
         rel="noreferrer noopener"
         target="_blank"
       >
-        <Icon
-          name="fa6-brands:square-x-twitter"
+        <SquareXTwitter
           class="scale-150 hover:cursor-pointer"
           data-sidemenu-icon
         />
@@ -33,8 +44,7 @@ import imgPfp from "../../assets/pfp.png";
         rel="noreferrer noopener"
         target="_blank"
       >
-        <Icon
-          name="fa6-brands:square-github"
+        <SquareGithub
           class="hover:text-purple-900 scale-150 transition-colors duration-150 hover:cursor-pointer"
           data-sidemenu-icon
         />
@@ -44,8 +54,7 @@ import imgPfp from "../../assets/pfp.png";
         rel="noreferrer noopener"
         target="_blank"
       >
-        <Icon
-          name="fa6-brands:pixiv"
+        <PixivIcon
           class="hover:text-blue-700 scale-150 transition-colors duration-150 hover:cursor-pointer"
           data-sidemenu-icon
         />
@@ -55,13 +64,27 @@ import imgPfp from "../../assets/pfp.png";
   <div
     class="flex flex-col justify-start bg-white shadow-lg shadow-neutral-200 px-6 py-8 rounded-2xl w-full"
   >
-    <Link leadingIcon="home" label="Home" url="/" />
-    <Link leadingIcon="file-text" label="About" url="/about" />
-    <Link leadingIcon="book" label="Blog" url="/blog" />
-    <Link leadingIcon="code" label="Projects" url="/projects" />
-    <Link leadingIcon="edit-3" label="Artworks" url="/artworks" />
-    <Link leadingIcon="award" label="Attribution" url="/attribution" />
-    <Link leadingIcon="message-circle" label="Contact Me!" url="/contact" />
+    <Link label="Home" url="/">
+      <FeatherHome slot="icon" />
+    </Link>
+    <Link label="About" url="/about">
+      <FeatherFileText slot="icon" />
+    </Link>
+    <Link label="Blog" url="/blog">
+      <FeatherBook slot="icon" />
+    </Link>
+    <Link label="Projects" url="/projects">
+      <FeatherCode slot="icon" />
+    </Link>
+    <Link label="Artworks" url="/artworks">
+      <FeatherEdit3 slot="icon" />
+    </Link>
+    <Link label="Attribution" url="/attribution">
+      <FeatherAward slot="icon" />
+    </Link>
+    <Link label="Contact Me!" url="/contact">
+      <FeatherMessageCircle slot="icon" />
+    </Link>
   </div>
 </section>
 

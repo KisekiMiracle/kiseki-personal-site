@@ -1,13 +1,10 @@
 ---
-import { Icon } from "astro-icon/components";
-
 interface Props {
-  icon: string;
   label: string;
   color: string;
 }
 
-const { icon, label, color }: Props = Astro.props;
+const { label, color }: Props = Astro.props;
 
 const hoverBG: any = {
   neutral: "hover:bg-neutral-700",
@@ -41,15 +38,17 @@ const lightBG: any = {
 };
 ---
 
-<p
-  class=`flex items-center gap-2 ${lightBG[color]} px-2.5 py-1 rounded-md w-fit hover:cursor-pointer transition-colors duration-150 hover:[&>span]:text-white ${hoverBG[color]} hover:[&>svg]:text-white`
+<div
+  class=`flex items-center gap-2 ${lightBG[color]} px-2.5 py-1 rounded-md w-fit hover:cursor-pointer transition-colors duration-150 hover:[&>p]:text-white ${hoverBG[color]} hover:[&svg]:text-white!`
   data-tag
 >
-  <Icon name={icon} class=`font-bold ${BG[color]}` />
-  <span class=`font-bold ${BG[color]} text-sm whitespace-nowrap`>
+  <p class=`${BG[color]}`>
+    <slot name="icon" />
+  </p>
+  <p class=`font-bold ${BG[color]} text-sm whitespace-nowrap`>
     {label}
-  </span>
-</p>
+  </p>
+</div>
 
 <script>
   import { gsap } from "gsap";

@@ -2,9 +2,9 @@
 /** biome-ignore-all lint/correctness/noUnusedVariables: <-> */
 
 interface Props {
-	leadingIcon: string;
-	label: string;
-	url: string;
+  leadingIcon: string;
+  label: string;
+  url: string;
 }
 
 const { leadingIcon, label, url } = Astro.props;
@@ -12,10 +12,10 @@ const { leadingIcon, label, url } = Astro.props;
 
 <a
   href={url}
-  class="flex items-center gap-4 px-2 py-3 rounded-xl transition-colors duration-150"
+  class="flex items-center gap-4 px-4 py-3 rounded-xl transition-colors duration-150"
   data-sidemenu-link
 >
-  <i data-feather={leadingIcon}></i>
+  <slot name="icon" />
   <span class="mt-0.5 font-bold text-xl">{label}</span>
 </a>
 
