@@ -3,6 +3,7 @@
 /** biome-ignore-all lint/correctness/noUnusedImports: <-> */
 /** biome-ignore-all assist/source/organizeImports: <-> */
 import { fade } from "astro:transitions";
+import { Image } from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
 import Tag from "../components/badges/Tag.astro";
 import TechBadge from "../components/badges/TechBadge.astro";
@@ -33,7 +34,7 @@ import MdiNewBox from "~icons/mdi/new-box";
   transition:animate={fade({ duration: "0.4s" })}
 >
   <div class="gap-8 grid" style="grid-template-columns: auto 1fr;">
-    <img src={ProfilePicture} alt="" class="rounded-2xl w-[160px]" />
+    <Image src={ProfilePicture} alt="" class="rounded-2xl w-[160px]" />
     <div class="flex flex-col gap-2">
       <h1 class="font-extrabold text-3xl">Kiseki</h1>
       <p class="mt-[-8px] text-neutral-500 text-lg">
