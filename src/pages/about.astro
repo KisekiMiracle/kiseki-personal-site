@@ -8,6 +8,7 @@ import Tag from "../components/badges/Tag.astro";
 import TechBadge from "../components/badges/TechBadge.astro";
 import coverImg from "../../src/assets/marina_beach.png";
 import Activity from "../components/badges/Activity.astro";
+import ProfilePicture from "../../src/assets/pfp.png";
 
 // Icons
 import Fa6BrandsSquareXTwitter from "~icons/fa6-brands/square-x-twitter";
@@ -32,7 +33,7 @@ import MdiNewBox from "~icons/mdi/new-box";
   transition:animate={fade({ duration: "0.4s" })}
 >
   <div class="gap-8 grid" style="grid-template-columns: auto 1fr;">
-    <img src="../../src/assets/pfp.png" alt="" class="rounded-2xl w-[160px]" />
+    <img src={ProfilePicture} alt="" class="rounded-2xl w-[160px]" />
     <div class="flex flex-col gap-2">
       <h1 class="font-extrabold text-3xl">Kiseki</h1>
       <p class="mt-[-8px] text-neutral-500 text-lg">
