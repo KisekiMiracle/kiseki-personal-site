@@ -1,6 +1,7 @@
 ---
 /** biome-ignore-all assist/source/organizeImports: <-> */
 /** biome-ignore-all lint/correctness/noUnusedImports: <-> */
+// @ts-nocheck
 import MainLayout from "../layouts/MainLayout.astro";
 import coverImg from "../../src/assets/banner_artworks.png";
 import { fade } from "astro/virtual-modules/transitions.js";
@@ -14,6 +15,7 @@ import MaterialSymbolsAnimation from "~icons/material-symbols/animation";
 import MdiCubeScan from "~icons/mdi/cube-scan";
 import MdiHeart from "~icons/mdi/heart";
 import IxWorkCaseFilled from "~icons/ix/work-case-filled";
+import MaterialSymbolsAnimatedImages from "~icons/material-symbols/animated-images";
 ---
 
 <MainLayout
@@ -26,21 +28,22 @@ import IxWorkCaseFilled from "~icons/ix/work-case-filled";
   <span
     >Creating Artworks since late 2019. Something that started out of nowhere
     became the thing that kept me on going. Without art, the world would not be
-    the same.</span
-  >
+    the same.
+  </span>
   <blockquote
-    class="px-6 py-2 border-l-4 border-l-blue-700 text-neutral-600 italic"
+    class="flex flex-col gap-2 bg-neutral-50 px-6 py-4 border-l-4 border-l-blue-700 text-neutral-600 italic"
   >
-    "I don't just draw–I portray an experience."
+    <span>"I don't just draw–I portray an experience."</span>
+    <small>–Kiseki</small>
   </blockquote>
   <div class="flex flex-row items-center gap-2 mt-7">
-    <MaterialSymbolsAnimation class="text-blue-700 text-4xl" />
+    <MaterialSymbolsAnimatedImages class="text-blue-700 text-4xl" />
     <h2 class="font-extrabold text-2xl">Animated Sprites</h2>
   </div>
   <span
     >Cute, little and adorable sprites that move~ <a
       href="/contact"
-      class="border-b border-b-blue-700 hovver:border-b-blue-500 text-blue-700 hover:text-blue-500 transition-colors duration-150"
+      class="border-b border-b-blue-700 hover:border-b-transparent text-blue-700 hover:text-blue-500 transition-colors duration-150"
       >You can also get your own!</a
     ></span
   >

@@ -18,7 +18,12 @@ const { title, description, img }: Props = Astro.props;
 <div
   class="gap-8 grid grid-cols-2 shadow-md p-8 border border-neutral-100 rounded-2xl overflow-hidden"
 >
-  <Image src={img} alt={description} class="hover:cursor-pointer" data-img />
+  <Image
+    src={img}
+    alt={description}
+    class="hover:scale-110 transition-all duration-150 hover:cursor-pointer"
+    data-img
+  />
   <div class="flex flex-col justify-between gap-2">
     <div class="flex flex-col">
       <h3 class="font-bold text-xl">{title}</h3>
@@ -41,10 +46,14 @@ const { title, description, img }: Props = Astro.props;
     const disposeBackdrop = () => {
       backdrop.style.display = "none";
       document.body.removeChild(backdrop);
+      document.body.style.overflowY = "auto";
       backdrop.removeEventListener("click", disposeBackdrop);
       document.removeEventListener("wheel", forbidScroll);
     };
-    const forbidScroll = (e: Event) => e.preventDefault();
+    const forbidScroll = (e: Event) => {
+      e.preventDefault();
+      document.body.style.overflowY = "hidden";
+    };
     const toggleBackdrop = () => {
       const posY =
         document.querySelector("main section > div")!.getBoundingClientRect()
